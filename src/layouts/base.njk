@@ -1,0 +1,35 @@
+---
+title: EightShapes Design System
+---
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="keywords" content="{{ meta_keywords | default(global.meta_keywords) }}">
+        <meta name="description" content="{{ meta_description | default(global.meta_description) }}">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+        <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+        <meta http-equiv="cleartype" content="on">
+        <title>{{ title }}</title>
+        <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,600" rel="stylesheet">
+        {% block head_elements %}
+        {% endblock %}
+        <script type="module">
+          import { EsdsIcon } from '/scripts/EsdsIcon.js';
+          customElements.define('esds-icon', EsdsIcon);
+        </script>
+    </head>
+    <body class="{{ body_classes }}">
+      <h4>Base.njk</h4>
+      <esds-icon></esds-icon>
+      <div class="esds-site-page-shell">
+
+      </div>
+        {{ content | safe }}
+    </body>
+</html>
