@@ -1,0 +1,10 @@
+---
+title: Form Composition
+layout: base.njk
+---
+
+<ul>
+{%- for form_component in collections.form_component -%}
+  <li><a href="{{ form_component.url }}">{{ form_component.data.title }}</a></li>
+{%- endfor -%}
+</ul>

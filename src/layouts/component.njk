@@ -1,16 +1,19 @@
 ---
-layout: base.njk
+layout: 'base.njk'
 ---
-
-<div>
-  <h2>Component Tabs Here</h2>
-  <div class="main-tab" style="border: solid 1px red;">
-    <h3>Main Tab</h3>
-
-  </div>
-  <div class="code-tab" style="border: solid 2px blue;">
-    <h3>Code Tab</h3>
-    {% block code_tab %}
-    {% endblock %}
+{# Component Header #}
+<div class="component-header">
+  <h1>{{ title }}</h1>
+  <div class="deck">
+    {{ deck }}
+    {{ content | safe }}
   </div>
 </div>
+
+{% for tab in collections[tabsTag] %}
+  <h3>{{ tab.data.title }}</h3>
+  <div class="tab-content">
+    {{ tab.templateContent | safe }}
+    {{ tab.fileSlug }}
+  </div>
+{% endfor %}

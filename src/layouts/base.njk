@@ -17,19 +17,21 @@ title: EightShapes Design System
         <meta http-equiv="cleartype" content="on">
         <title>{{ title }}</title>
         <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,600" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/esds-example-code-pair.css">
+        <link rel="stylesheet" href="/styles/esds-rendered-example.css">
         {% block head_elements %}
         {% endblock %}
-        <script type="module">
-          import { EsdsIcon } from '/scripts/EsdsIcon.js';
-          customElements.define('esds-icon', EsdsIcon);
-        </script>
     </head>
     <body class="{{ body_classes }}">
-      <h4>Base.njk</h4>
-      <esds-icon></esds-icon>
+      <h1><esds-icon></esds-icon> EightShapes Design System</h1>
       <div class="esds-site-page-shell">
-
+        <esds-example-code-pair>
+          <esds-rendered-example label="kick">
+            <h1>Magic with a </h1>
+          </esds-rendered-example>
+        </esds-example-code-pair>
       </div>
         {{ content | safe }}
+        <script src="/scripts/main.js"></script>
     </body>
 </html>

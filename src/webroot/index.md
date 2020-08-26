@@ -2,7 +2,3 @@
 layout: base.njk
 title: Eleventy Heartbeat Test
 ---
-
-{% set name = "Kevin" %}
-
-<h1>Hi {{ name }}</h1>

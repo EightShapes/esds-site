@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx @11ty/eleventy --input=src/webroot --output=_site --serve",
+    "start": "npm-run-all build:scripts --parallel watch:scripts watch:serve",
+    "watch:serve": "npx @11ty/eleventy --input=src/webroot --output=_site --serve",
+    "watch:scripts": "chokidar \"src/scripts/*.js\" -c \"npm run build:scripts\"",
+    "build:scripts": "npx esbuild --bundle src/scripts/main.js --outfile=dist/scripts/main.js --format=esm",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,6 +15,13 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "@eightshapes/esds-icon": "^0.1.0"
+    "@eightshapes/esds-example-code-pair": "^0.11.2",
+    "@eightshapes/esds-icon": "^0.1.1",
+    "@eightshapes/esds-rendered-example": "^0.7.0"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^2.1.0",
+    "esbuild": "^0.6.27",
+    "npm-run-all": "^4.1.5"
   }
 }
