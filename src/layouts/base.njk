@@ -19,19 +19,39 @@ title: EightShapes Design System
         <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,600" rel="stylesheet">
         <link rel="stylesheet" href="/styles/esds-example-code-pair.css">
         <link rel="stylesheet" href="/styles/esds-rendered-example.css">
+        <link rel="stylesheet" href="/styles/main.css">
         {% block head_elements %}
         {% endblock %}
     </head>
     <body class="{{ body_classes }}">
-      <h1><esds-icon></esds-icon> EightShapes Design System</h1>
       <div class="esds-site-page-shell">
-        <esds-example-code-pair>
-          <esds-rendered-example label="kick">
-            <h1>Magic with a </h1>
-          </esds-rendered-example>
-        </esds-example-code-pair>
+        <div class="esds-site-page-shell__nav">
+          <h1 class="esds-site-page-shell__logo">
+            {% include "../svg/eightshapes-logo.svg" %}
+          </h1>
+        </div>
+        <div class="esds-site-page-shell__content">
+          {% if deck %}
+            <div class="esds-site-page-shell__header">
+              <div class="esds-site-page-shell__header-inner">
+                <div class="esds-site-deck">
+                  <div class="esds-site-deck__content">
+                    <h1 class="esds-site-deck__title">{{ title }}</h1>
+                    <p class="esds-site-deck__body">
+                      {{ deck }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+          <div class="esds-site-page-shell__body">
+            <div class="esds-site-page-shell__body-inner">
+              {{ content | safe }}
+            </div>
+          </div>
+        </div>
       </div>
-        {{ content | safe }}
-        <script src="/scripts/main.js"></script>
+      <script src="/scripts/main.js"></script>
     </body>
 </html>

@@ -1,0 +1,52 @@
+@use '../../node_modules/@eightshapes/esds-visual-style/src/esds-visual-style' as *;
+@use 'shared' as *;
+@use 'component-layout';
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.esds-site-page-shell {
+  @include esds-box-sizing;
+  display: flex;
+  min-height: 100vh;
+}
+
+.esds-site-page-shell__nav {
+  background-color: $esds-background-color-dark;
+  color: white;
+  flex: 0 0 200px;
+  padding: 0 $esds-space-generic-half-x 0 $esds-space-generic-three-quarter-x;
+}
+
+.esds-site-page-shell__content {
+  flex: 1 1 100%;
+}
+
+.esds-site-page-shell__header {
+  background-color: $esds-background-color-light;
+}
+
+.esds-site-page-shell__header-inner {
+  @include esds-site-content-max-width;
+}
+
+.esds-site-page-shell__body-inner {
+  @include esds-site-content-max-width;
+}
+
+.esds-site-page-shell__logo {
+  fill: white;
+}
+
+// DECK
+.esds-site-deck {
+  align-items: center;
+  display: flex;
+  height: 315px;
+}
+
+.esds-site-deck__title {
+  margin: 0;
+}

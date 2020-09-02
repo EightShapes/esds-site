@@ -1,0 +1,14 @@
+@use '../../node_modules/@eightshapes/esds-visual-style/src/esds-visual-style' as *;
+
+.esds-site-component-layout-body {
+  display: flex;
+}
+
+.esds-site-component-layout-body__content {
+  flex: 1 1 100%;
+  padding: 0 $esds-space-generic-2-x 0 0;
+}
+
+.esds-site-component-layout-body__local-nav {
+  flex: 0 0 150px;
+}

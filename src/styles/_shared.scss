@@ -1,0 +1,8 @@
+@use '../../node_modules/@eightshapes/esds-visual-style/src/esds-visual-style' as *;
+
+@mixin esds-site-content-max-width() {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding: 0 $esds-space-generic-2-x;
+  width: 100%;
+}
