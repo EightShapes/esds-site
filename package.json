@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel build:styles build:scripts --parallel watch:styles watch:scripts watch:serve",
     "watch:serve": "npx @11ty/eleventy --serve",
-    "watch:scripts": "chokidar \"src/scripts/*.js\" -c \"npm run build:scripts\"",
+    "watch:scripts": "chokidar \"src/scripts/*.js\" \"src/site-components/**/*.js\" -c \"npm run build:scripts\"",
     "build:scripts": "npx esbuild --bundle src/scripts/main.js --outfile=dist/scripts/main.js --format=esm",
     "build:styles": "npx sass src/styles:dist/styles",
     "watch:styles": "chokidar \"src/styles/**/*.scss\" -c \"npm run build:styles\"",
@@ -23,8 +23,10 @@
     "@eightshapes/esds-visual-style": "^0.2.0"
   },
   "devDependencies": {
+    "@eightshapes/slotify": "^0.5.5",
     "chokidar-cli": "^2.1.0",
     "esbuild": "^0.6.27",
+    "lit-element": "^2.4.0",
     "npm-run-all": "^4.1.5",
     "sass": "^1.26.10",
     "stylelint": "^13.7.0",

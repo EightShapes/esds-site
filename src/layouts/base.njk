@@ -24,16 +24,15 @@ title: EightShapes Design System
         {% endblock %}
     </head>
     <body class="{{ body_classes }}">
-      <div class="esds-site-page-shell">
-        <div class="esds-site-page-shell__nav">
-          <div class="esds-site-page-shell__nav-inner">
+      <esds-site-page-shell>
+        <div slot="nav">
           <h1 class="esds-site-page-shell__logo">
-            {% include "../svg/eightshapes-logo.svg" %}
+            {% include '../svg/eightshapes-logo.svg' %}
           </h1>
           <ul>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
+            <li>Home</li>
+            <li>Getting Started</li>
+            <li>Release History</li>
             <li>Nav Sample</li>
             <li>Nav Sample</li>
             <li>Nav Sample</li>
@@ -132,30 +131,23 @@ title: EightShapes Design System
             <li>Nav Sample</li>
             <li>Nav Sample</li>
           </ul>
-          </div>
         </div>
-        <div class="esds-site-page-shell__content">
-          {% if deck %}
-            <div class="esds-site-page-shell__header">
-              <div class="esds-site-page-shell__header-inner">
-                <div class="esds-site-deck">
-                  <div class="esds-site-deck__content">
-                    <h1 class="esds-site-deck__title">{{ title }}</h1>
-                    <p class="esds-site-deck__body">
-                      {{ deck }}
-                    </p>
-                  </div>
+        {% if deck %}
+          <div slot="deck" class="esds-site-page-shell__header">
+            <div class="esds-site-page-shell__header-inner">
+              <div class="esds-site-deck">
+                <div class="esds-site-deck__content">
+                  <h1 class="esds-site-deck__title">{{ title }}</h1>
+                  <p class="esds-site-deck__body">
+                    {{ deck }}
+                  </p>
                 </div>
               </div>
             </div>
-          {% endif %}
-          <div class="esds-site-page-shell__body">
-            <div class="esds-site-page-shell__body-inner">
-              {{ content | safe }}
-            </div>
           </div>
-        </div>
-      </div>
+        {% endif %}
+        {{ content | safe }}
+      </esds-site-page-shell>
       <script src="/scripts/main.js"></script>
     </body>
 </html>

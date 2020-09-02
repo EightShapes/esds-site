@@ -1,6 +1,10 @@
 @use '../../node_modules/@eightshapes/esds-visual-style/src/esds-visual-style' as *;
 @use 'shared' as *;
 @use 'component-layout';
+
+$esds-site-nav-width: 200px;
+$esds-site-nav-on-canvas-at: 1086px;
+
 html,
 body {
   margin: 0;
@@ -9,24 +13,53 @@ body {
 
 .esds-site-page-shell {
   @include esds-box-sizing;
-  display: flex;
   font-family: $esds-font-family-sans-serif;
   min-height: 100vh;
+
+  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
+    display: flex;
+  }
 }
 
 // SITE NAV
 .esds-site-page-shell__nav {
   background-color: $esds-background-color-dark;
   color: white;
-  flex: 0 0 200px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  // flex: 0 0 $esds-site-nav-width;
+  transform: translateX(-$esds-site-nav-width);
+  width: $esds-site-nav-width;
+  z-index: 100;
+
+  .esds-site-page-shell--visible-nav & {
+    transform: translateX(0);
+  }
+
+  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
+    flex: 0 0 $esds-site-nav-width;
+    position: static;
+    transform: translateX(0);
+  }
+}
+
+.esds-site-page-shell__nav-toggle {
+  left: 100%;
+  position: absolute;
+  top: 0;
+
+  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
+    display: none;
+  }
 }
 
 .esds-site-page-shell__nav-inner {
   height: 100vh;
   overflow-y: scroll;
   padding: 0 $esds-space-generic-half-x 0 $esds-space-generic-three-quarter-x;
-  position: fixed;
-  width: 200px;
+  // position: fixed;
+  width: $esds-site-nav-width;
 }
 
 // PAGE CONTENT
