@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
+    "@eightshapes/esds-card": "^0.2.1",
     "@eightshapes/esds-example-code-pair": "^0.11.2",
     "@eightshapes/esds-icon": "^0.1.1",
     "@eightshapes/esds-rendered-example": "^0.7.0",
