@@ -2,12 +2,13 @@ import { html, LitElement } from "lit-element";
 import { ifDefined } from "lit-html/directives/if-defined";
 import { unsafeHTML } from "lit-html/directives/unsafe-html";
 import { Slotify } from "@eightshapes/slotify";
-import { EightShapesLogo } from "../svg/eightshapes-logo.svg.js";
 
 /**
  * @element esds-site-page-shell
  *
  * @slot content - Accepts miscellaneous content for the page shell
+ * @slot nav - Accepts content for the off-canvas site-level nav
+ * @slot deck - Accepts content for the page deck
  */
 
 export class EsdsSitePageShell extends Slotify(LitElement) {
