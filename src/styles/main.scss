@@ -10,16 +10,26 @@ body {
 .esds-site-page-shell {
   @include esds-box-sizing;
   display: flex;
+  font-family: $esds-font-family-sans-serif;
   min-height: 100vh;
 }
 
+// SITE NAV
 .esds-site-page-shell__nav {
   background-color: $esds-background-color-dark;
   color: white;
   flex: 0 0 200px;
-  padding: 0 $esds-space-generic-half-x 0 $esds-space-generic-three-quarter-x;
 }
 
+.esds-site-page-shell__nav-inner {
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 0 $esds-space-generic-half-x 0 $esds-space-generic-three-quarter-x;
+  position: fixed;
+  width: 200px;
+}
+
+// PAGE CONTENT
 .esds-site-page-shell__content {
   flex: 1 1 100%;
 }
