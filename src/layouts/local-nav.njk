@@ -3,13 +3,13 @@ layout: 'base.njk'
 ---
 <div class="esds-site-component-layout-body">
   <div class="esds-site-component-layout-body__content">
+    <esds-tabs>
     {% for tab in collections[tabsTag] %}
-      <h3>{{ tab.data.title }}</h3>
-      <div class="tab-content">
+      <esds-tab label="{{tab.data.title}}">
         {{ tab.templateContent | safe }}
-        {{ tab.fileSlug }}
-      </div>
+      </esds-tab>
     {% endfor %}
+    </esds-tabs>
   </div>
   <div class="esds-site-component-layout-body__local-nav">
     <h3>LOCAL NAV</h3>
