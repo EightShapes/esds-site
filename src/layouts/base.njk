@@ -16,22 +16,139 @@ title: EightShapes Design System
         <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
         <meta http-equiv="cleartype" content="on">
         <title>{{ title }}</title>
-        <link href="https://fonts.googleapis.com/css?family=Barlow:300,400,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/styles/esds-example-code-pair.css">
         <link rel="stylesheet" href="/styles/esds-rendered-example.css">
+        <link rel="stylesheet" href="/styles/main.css">
         {% block head_elements %}
         {% endblock %}
     </head>
     <body class="{{ body_classes }}">
-      <h1><esds-icon></esds-icon> EightShapes Design System</h1>
-      <div class="esds-site-page-shell">
-        <esds-example-code-pair>
-          <esds-rendered-example label="kick">
-            <h1>Magic with a </h1>
-          </esds-rendered-example>
-        </esds-example-code-pair>
-      </div>
+      <esds-site-page-shell>
+        <div slot="nav">
+          <h1 class="esds-site-page-shell__logo">
+            {% include '../svg/eightshapes-logo.svg' %}
+          </h1>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li>Getting Started</li>
+            <li>Release History</li>
+            <li><a href="/components/card">Card</a></li>
+            <li><a href="/components/thumbnail">Thumbnail</a></li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+            <li>Nav Sample</li>
+          </ul>
+        </div>
+        {% if deck %}
+          <div slot="deck" class="esds-site-page-shell__header">
+            <div class="esds-site-page-shell__header-inner">
+              <div class="esds-site-deck">
+                <div class="esds-site-deck__content">
+                  <h1 class="esds-site-deck__title">{{ title }}</h1>
+                  <p class="esds-site-deck__body">
+                    {{ deck }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
         {{ content | safe }}
-        <script src="/scripts/main.js"></script>
+      </esds-site-page-shell>
+      <script src="/scripts/main.js"></script>
     </body>
 </html>

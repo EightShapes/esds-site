@@ -1,0 +1,17 @@
+---
+layout: 'base.njk'
+---
+<div class="esds-site-component-layout-body">
+  <div class="esds-site-component-layout-body__content">
+    <esds-tabs>
+    {% for tab in collections[tabsTag] %}
+      <esds-tab label="{{tab.data.title}}">
+        {{ tab.templateContent | safe }}
+      </esds-tab>
+    {% endfor %}
+    </esds-tabs>
+  </div>
+  <div class="esds-site-component-layout-body__local-nav">
+    <h3>LOCAL NAV</h3>
+  </div>
+</div>
