@@ -1,4 +1,4 @@
-@use '../../node_modules/@eightshapes/esds-visual-style/src/esds-visual-style' as *;
+@use '@eightshapes/esds-visual-style/src/esds-visual-style' as *;
 @use 'shared' as *;
 @use 'component-layout';
 
@@ -23,7 +23,7 @@ body {
 
 // SITE NAV
 .esds-site-page-shell__nav {
-  background-color: $esds-background-color-dark;
+  background-color: $esds-color-background-dark-primary;
   color: white;
   left: 0;
   position: fixed;
@@ -68,7 +68,7 @@ body {
 }
 
 .esds-site-page-shell__header {
-  background-color: $esds-background-color-light;
+  background-color: $esds-color-background-light-secondary;
 }
 
 .esds-site-page-shell__header-inner {
