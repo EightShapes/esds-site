@@ -8,7 +8,7 @@
     "watch:serve": "npx @11ty/eleventy --serve",
     "watch:scripts": "chokidar \"src/scripts/*.js\" \"src/site-components/**/*.js\" -c \"npm run build:scripts\"",
     "build:scripts": "npx esbuild --bundle src/scripts/main.js --outfile=dist/scripts/main.js --format=esm",
-    "build:styles": "npx sass src/styles:dist/styles",
+    "build:styles": "npx sass --load-path=node_modules src/styles:dist/styles",
     "watch:styles": "chokidar \"src/styles/**/*.scss\" -c \"npm run build:styles\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,12 +17,13 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "@eightshapes/esds-card": "^0.2.1",
+    "@eightshapes/esds-card": "^0.2.4",
     "@eightshapes/esds-example-code-pair": "^0.11.2",
-    "@eightshapes/esds-icon": "^0.1.1",
+    "@eightshapes/esds-icon": "^0.3.4",
     "@eightshapes/esds-rendered-example": "^0.7.0",
-    "@eightshapes/esds-tabs": "^0.1.2",
-    "@eightshapes/esds-visual-style": "^0.2.0"
+    "@eightshapes/esds-tabs": "^0.1.3",
+    "@eightshapes/esds-tokens": "^0.4.0",
+    "@eightshapes/esds-visual-style": "^0.3.0"
   },
   "devDependencies": {
     "@eightshapes/slotify": "^0.5.5",
