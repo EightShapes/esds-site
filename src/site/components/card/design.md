@@ -1,5 +1,5 @@
 ---
-title: Design Guidelines
+title: Design
 tags: card_tabs
 permalink: false
 ---

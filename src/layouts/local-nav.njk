@@ -2,16 +2,16 @@
 layout: 'base.njk'
 ---
 <div class="esds-site-component-layout-body">
-  <div class="esds-site-component-layout-body__content">
     <esds-tabs>
-    {% for tab in collections[tabsTag] %}
+    {% for tab in collections[tabsTag] | componentTabSort %}
       <esds-tab label="{{tab.data.title}}">
-        {{ tab.templateContent | safe }}
+      <div class="esds-site-component-layout-body__content">
+            {{ tab.templateContent | safe }}
+      </div>
+      <div class="esds-site-component-layout-body__local-nav">
+        <h3>LOCAL NAV {{tab.data.title}}</h3>
+      </div>
       </esds-tab>
     {% endfor %}
     </esds-tabs>
-  </div>
-  <div class="esds-site-component-layout-body__local-nav">
-    <h3>LOCAL NAV</h3>
-  </div>
 </div>
