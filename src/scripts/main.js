@@ -3,4 +3,5 @@ import "@eightshapes/esds-rendered-example/dist/esds-rendered-example-web-compon
 import "@eightshapes/esds-icon/dist/esds-icon-web-component.js";
 import "@eightshapes/esds-card/dist/esds-card-web-component.js";
 import "@eightshapes/esds-tabs/dist/esds-tabs-web-component.js";
+import "@eightshapes/esds-list-group/dist/esds-list-group-web-component.js";
 import "../site-components/page-shell/PageShell.js";

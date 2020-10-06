@@ -25,113 +25,18 @@ title: EightShapes Design System
     </head>
     <body class="{{ body_classes }}">
       <esds-site-page-shell>
-        <div slot="nav">
+        <div class="esds-container--dark-primary" slot="nav">
           <h1 class="esds-site-page-shell__logo">
             {% include '../svg/eightshapes-logo.svg' %}
           </h1>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li>Getting Started</li>
-            <li>Release History</li>
-            <li><a href="/components/card">Card</a></li>
-            <li><a href="/components/thumbnail">Thumbnail</a></li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-          </ul>
+          <esds-list-group>
+            <esds-list-item href="/" {% if page.url == post.url %}selected{% endif %}>Home</esds-list-item>
+            <esds-list-group header="Components" collapsible>
+              {%- for post in collections['Component Page'] -%}
+                <esds-list-item href="{{ post.url }}" {% if page.url == post.url %}selected{% endif %}>{{ post.data.title }}</esds-list-item>
+              {%- endfor -%}
+            </esds-list-group>
+          </esds-list-group>
         </div>
         {% if deck %}
           <div slot="deck" class="esds-site-page-shell__header">

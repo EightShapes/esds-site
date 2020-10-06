@@ -2,7 +2,7 @@
 @use 'shared' as *;
 @use 'component-layout';
 
-$esds-site-nav-width: 200px;
+$esds-site-nav-width: 250px;
 $esds-site-nav-on-canvas-at: 1086px;
 
 html,
@@ -57,9 +57,29 @@ body {
 .esds-site-page-shell__nav-inner {
   height: 100vh;
   overflow-y: scroll;
-  padding: 0 $esds-space-generic-half-x 0 $esds-space-generic-three-quarter-x;
   // position: fixed;
   width: $esds-site-nav-width;
+
+  .esds-list-group__header,
+  .esds-list-item .esds-list-item__link {
+    padding-left: $esds-space-generic-three-quarter-x;
+    padding-right: $esds-space-generic-half-x;
+  }
+
+  .esds-list-item--selected .esds-list-item__link {
+    background: $esds-color-background-dark-secondary;
+    position: relative;
+
+    &::before {
+      background: $esds-color-navigation-selected-on-dark;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 4px;
+    }
+  }
 }
 
 // PAGE CONTENT

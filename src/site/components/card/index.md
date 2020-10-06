@@ -2,11 +2,11 @@
 layout: "local-nav.njk"
 title: "Card"
 tabsTag: card_tabs
+tags: "Component Page"
 deck: Cards depict an object's summary content, actions, and path to more details arranged in a grid of rows and/or columns.
 ---
 
-
-<!-- 
+<!--
 Cards provide a set of content which acts as an entry point to more detailed information.
 
 Cards contain content and actions about a single subject.
@@ -21,12 +21,6 @@ A card is a preview that serves as an entry point to more detailed information.
 
 Use a card when there is a self-contained object on a page (often repeatable) that contains a snapshot of related content that a user can drill into.
 
-The card component is used to provide a brief summary of content or a task, often with a link to more detail. Cards are frequently displayed alongside other cards to group related content or tasks. 
+The card component is used to provide a brief summary of content or a task, often with a link to more detail. Cards are frequently displayed alongside other cards to group related content or tasks.
 
 -->
-
-
-
-
-
-
