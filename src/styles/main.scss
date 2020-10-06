@@ -1,3 +1,5 @@
+@use '@eightshapes/esds-example-code-pair/dist/esds-example-code-pair.css';
+@use '@eightshapes/esds-page-navigation/dist/esds-page-navigation.css';
 @use '@eightshapes/esds-visual-style/src/esds-visual-style' as *;
 @use 'shared' as *;
 @use 'component-layout';
@@ -59,27 +61,6 @@ body {
   overflow-y: scroll;
   // position: fixed;
   width: $esds-site-nav-width;
-
-  .esds-list-group__header,
-  .esds-list-item .esds-list-item__link {
-    padding-left: $esds-space-generic-three-quarter-x;
-    padding-right: $esds-space-generic-half-x;
-  }
-
-  .esds-list-item--selected .esds-list-item__link {
-    background: $esds-color-background-dark-secondary;
-    position: relative;
-
-    &::before {
-      background: $esds-color-navigation-selected-on-dark;
-      content: "";
-      height: 100%;
-      left: 0;
-      position: absolute;
-      top: 0;
-      width: 4px;
-    }
-  }
 }
 
 // PAGE CONTENT

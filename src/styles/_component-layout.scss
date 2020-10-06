@@ -2,13 +2,9 @@
 
 $esds-local-nav-visible-at: 1118px;
 
-.esds-site-component-layout-body {
-  display: flex;
-}
-
 .esds-site-component-layout-body__content {
   flex: 1 1 100%;
-  padding: 0 $esds-space-generic-2-x 0 0;
+  padding: 0 $esds-space-2-x 0 0;
 }
 
 .esds-site-component-layout-body__local-nav {
@@ -18,4 +14,8 @@ $esds-local-nav-visible-at: 1118px;
   @media screen and (min-width: $esds-local-nav-visible-at) {
     display: block;
   }
+}
+
+.esds-site-component-layout-body__tab {
+  display: flex;
 }

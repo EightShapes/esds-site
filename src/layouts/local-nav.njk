@@ -4,14 +4,23 @@ layout: 'base.njk'
 <div class="esds-site-component-layout-body">
     <esds-tabs>
     {% for tab in collections[tabsTag] | componentTabSort %}
+      {% set bodyTabId = 'esds-body-tab--' + tab.data.title | replace(' ', '-') %}
       <esds-tab label="{{tab.data.title}}">
-      <div class="esds-site-component-layout-body__content">
-            {{ tab.templateContent | safe }}
-      </div>
-      <div class="esds-site-component-layout-body__local-nav">
-        <h3>LOCAL NAV {{tab.data.title}}</h3>
-      </div>
+        <div class="esds-site-component-layout-body__tab" id="{{ bodyTabId }}">
+          <div class="esds-site-component-layout-body__content">
+                {{ tab.templateContent | safe }}
+          </div>
+          <div class="esds-site-component-layout-body__local-nav">
+            <esds-page-navigation content-selectors='["#{{ bodyTabId }} h2"]' debug-markers></esds-page-navigation>
+          </div>
+        </div>
       </esds-tab>
     {% endfor %}
     </esds-tabs>
 </div>
+<script>
+  const tabs = document.querySelector('esds-tabs');
+  tabs.addEventListener('esds-tabs-tab-changed', () => {
+    console.log('TAB CHANGED');
+  });
+</script>
