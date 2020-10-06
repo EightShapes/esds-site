@@ -14,7 +14,7 @@ Cards can be configured individually and arranged collectively to meet different
 
 ### Default
 
-By default, always include a [thumbnail], title, and description. 
+By default, always include a [thumbnail], title, and description.
 
 <esds-example-code-pair source='<esds-card title="Example Card on Doc Site"></esds-card>'>
 <esds-rendered-example label="default">
