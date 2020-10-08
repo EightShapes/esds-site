@@ -68,11 +68,48 @@ body {
   flex: 1 1 100%;
 }
 
-.esds-site-page-shell__header {
+.esds-site-page-shell__header-inner {
   background-color: $esds-color-background-light-secondary;
 }
 
-.esds-site-page-shell__header-inner {
+.esds-site-deck__body {
+  @include esds-font-size("body-l");
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.esds-tabs__tablist {
+  transition: top 0.5s;
+}
+
+.esds-site-page-shell--fixed-header {
+  .esds-site-page-shell__header-inner {
+    position: fixed;
+    width: calc(100vw - #{$esds-site-nav-width});
+    z-index: 100;
+  }
+
+  .esds-site-deck {
+    height: 90px;
+  }
+
+  .esds-site-deck__body {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .esds-site-deck__title {
+    @include esds-heading-level-4;
+  }
+
+  .esds-tabs__tablist {
+    position: fixed;
+    top: 46px;
+    z-index: 200;
+  }
+}
+
+.esds-site-page-shell__header-content {
   @include esds-site-content-max-width;
 }
 
@@ -86,11 +123,27 @@ body {
 
 // DECK
 .esds-site-deck {
+  @include esds-box-sizing;
   align-items: center;
   display: flex;
   height: 315px;
+  padding-bottom: 44px;
+  transition: height 0.5s;
 }
 
 .esds-site-deck__title {
+  @include esds-heading-level-1;
   margin: 0;
+  transition: font-size 0.5s;
+}
+
+.esds-site-deck__content {
+  position: relative;
+  top: 44px;
+}
+
+.esds-site-page-shell__header--fixed {
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
