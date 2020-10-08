@@ -59,9 +59,14 @@ body {
 
 .esds-site-page-shell__nav-inner {
   height: 100vh;
-  overflow-y: scroll;
-  // position: fixed;
+  position: sticky;
+  top: 0;
   width: $esds-site-nav-width;
+}
+
+.esds-site-page-shell__nav-content {
+  display: flex;
+  flex-direction: column;
 }
 
 // PAGE CONTENT
@@ -71,11 +76,17 @@ body {
 
 .esds-site-page-shell__header-inner {
   background-color: $esds-color-background-light-secondary;
+  width: 100%;
+
+  @media screen and (min-width: $esds-breakpoints-width-1000) {
+    width: calc(100vw - #{$esds-site-nav-width});
+  }
 }
 
 .esds-site-deck__body {
   @include esds-font-size("body-l");
   margin: 0;
+  max-width: 850px;
   opacity: 1;
   transition: opacity 0.5s;
 }
@@ -83,7 +94,6 @@ body {
 .esds-site-page-shell--fixed-header {
   .esds-site-page-shell__header-inner {
     position: fixed;
-    width: calc(100vw - #{$esds-site-nav-width});
     z-index: 100;
   }
 
@@ -110,8 +120,21 @@ body {
   @include esds-site-content-max-width;
 }
 
+$esds-logo-height: 100px;
+
 .esds-site-page-shell__logo {
+  align-items: center;
+  display: flex;
   fill: white;
+  flex: 0 0 $esds-logo-height;
+  margin: 0;
+  padding: 0 $esds-space-4-x 0 $esds-space-three-quarter-x;
+}
+
+.esds-site-page-shell__nav-scroll-wrapper {
+  flex: 1 1 auto;
+  height: calc(100vh - #{$esds-logo-height});
+  overflow-y: auto;
 }
 
 // DECK

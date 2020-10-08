@@ -23,18 +23,51 @@ title: EightShapes Design System
     </head>
     <body class="{{ body_classes }}">
       <esds-site-page-shell>
-        <div class="esds-container--dark-primary" slot="nav">
+        <div class="esds-site-page-shell__nav-content esds-container--dark-primary" slot="nav">
           <h1 class="esds-site-page-shell__logo">
             {% include '../svg/eightshapes-logo.svg' %}
           </h1>
-          <esds-list-group>
-            <esds-list-item href="/" {% if page.url == post.url %}selected{% endif %}>Home</esds-list-item>
-            <esds-list-group header="Components" collapsible>
-              {%- for post in collections['Component Page'] -%}
-                <esds-list-item href="{{ post.url }}" {% if page.url == post.url %}selected{% endif %}>{{ post.data.title }}</esds-list-item>
-              {%- endfor -%}
+          <div class="esds-site-page-shell__nav-scroll-wrapper">
+            <esds-list-group>
+              <esds-list-item href="/" {% if page.url == post.url %}selected{% endif %}>Home</esds-list-item>
+              <esds-list-group header="UI Components" collapsible>
+                {%- for post in collections['Component Page'] -%}
+                  <esds-list-item href="{{ post.url }}" {% if page.url == post.url %}selected{% endif %}>{{ post.data.title }}</esds-list-item>
+                {%- endfor -%}
+              </esds-list-group>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
             </esds-list-group>
-          </esds-list-group>
+          </div>
         </div>
         {% if deck %}
           <div slot="deck" class="esds-site-page-shell__header">
