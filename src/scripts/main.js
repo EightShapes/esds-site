@@ -38,8 +38,24 @@ if (document.body.classList.contains("local-nav-layout")) {
   // });
 
   // Listen for local nav clicks
+  const resetLocalNavSelected = () => {
+    const listItems = Array.from(
+      document.querySelectorAll(
+        ".esds-site-component-layout-body__local-nav esds-list-item"
+      )
+    );
+    listItems.forEach((li) => (li.selected = false));
+  };
+
   localNavElement.addEventListener("click", (e) => {
     const link = e.target.closest(".esds-list-item__link");
+    const listItem = e.target.closest("esds-list-item");
+
+    if (listItem) {
+      resetLocalNavSelected();
+      listItem.selected = true;
+    }
+
     if (link) {
       const targetId = link.getAttribute("href");
       const target = document.getElementById(targetId.replace("#", ""));
@@ -86,9 +102,9 @@ if (document.body.classList.contains("local-nav-layout")) {
 
     // Dynamically build local nav based on tab content
     localNavElement.innerHTML = `
-      <esds-list-group size="small" selected-indicators>
+      <esds-list-group size="small" selected-indicators header="Contents">
         ${headerElements
-          .map((he) => {
+          .map((he, index) => {
             let calculatedHeaderId = he.textContent
               .toLowerCase()
               .replace(/[^a-z0-9]+/g, "-")
@@ -117,10 +133,15 @@ if (document.body.classList.contains("local-nav-layout")) {
               // console.log("I have left the viewport", headerId);
             });
 
+            console.log(index);
             if (he.tagName === "H2") {
-              return `<esds-list-item href="#${headerId}">${he.textContent}</esds-list-item>`;
+              return `<esds-list-item href="#${headerId}" ${
+                index === 0 ? "selected" : ""
+              }>${he.textContent}</esds-list-item>`;
             } else {
-              return `<esds-list-item nested href="#${headerId}">${he.textContent}</esds-list-item>`;
+              return `<esds-list-item nested href="#${headerId}" ${
+                index === 0 ? "selected" : ""
+              }>${he.textContent}</esds-list-item>`;
             }
           })
           .join("")}
