@@ -127,13 +127,20 @@ if (document.body.classList.contains("local-nav-layout")) {
             var elementWatcher = scrollMonitor.create(myElement);
 
             elementWatcher.enterViewport(function () {
+              const listItem = document.querySelector(
+                `esds-list-item[href="#${headerId}"]`
+              );
+              console.log(headerId, listItem);
+              if (listItem) {
+                resetLocalNavSelected();
+                listItem.selected = true;
+              }
               // console.log("I have entered the viewport", headerId);
             });
             elementWatcher.exitViewport(function () {
               // console.log("I have left the viewport", headerId);
             });
 
-            console.log(index);
             if (he.tagName === "H2") {
               return `<esds-list-item href="#${headerId}" ${
                 index === 0 ? "selected" : ""
