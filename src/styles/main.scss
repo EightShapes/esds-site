@@ -2,10 +2,11 @@
 @use '@eightshapes/esds-page-navigation/dist/esds-page-navigation.css';
 @use '@eightshapes/esds-visual-style/src/esds-visual-style' as *;
 @use 'shared' as *;
-@use 'component-layout';
+@use 'local-nav-layout';
 
 $esds-site-nav-width: 250px;
 $esds-site-nav-on-canvas-at: 1086px;
+$esds-fixed-header-transition-timing: 0.5s;
 
 html,
 body {
@@ -74,12 +75,9 @@ body {
 
 .esds-site-deck__body {
   @include esds-font-size("body-l");
+  margin: 0;
   opacity: 1;
   transition: opacity 0.5s;
-}
-
-.esds-tabs__tablist {
-  transition: top 0.5s;
 }
 
 .esds-site-page-shell--fixed-header {
@@ -94,18 +92,13 @@ body {
   }
 
   .esds-site-deck__body {
+    height: 0;
     opacity: 0;
     visibility: hidden;
   }
 
   .esds-site-deck__title {
     @include esds-heading-level-4;
-  }
-
-  .esds-tabs__tablist {
-    position: fixed;
-    top: 46px;
-    z-index: 200;
   }
 }
 
@@ -138,12 +131,10 @@ body {
 }
 
 .esds-site-deck__content {
-  position: relative;
-  top: 44px;
-}
+  transform: translateY(44px);
+  transition: transform $esds-fixed-header-transition-timing;
 
-.esds-site-page-shell__header--fixed {
-  position: fixed;
-  top: 0;
-  z-index: 100;
+  .esds-site-page-shell--fixed-header & {
+    transform: translateY(0);
+  }
 }

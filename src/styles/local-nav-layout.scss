@@ -28,6 +28,12 @@ $esds-local-nav-visible-at: 1118px;
 }
 
 .esds-tabs__tablist {
-  position: relative;
-  top: -44px;
+  transform: translateY(-44px);
+  transition: transform 0.5s;
+
+  .esds-site-page-shell--fixed-header & {
+    position: fixed;
+    transform: translateY(-293px);
+    z-index: 300;
+  }
 }
