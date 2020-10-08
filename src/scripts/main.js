@@ -10,7 +10,6 @@ const scrollMonitor = require("scrollmonitor");
 
 // DECK MONITOR
 const header = document.querySelector(".esds-site-page-shell__header");
-console.log(header, header.offsetHeight);
 header.style.height = `${header.offsetHeight}px`;
 const headerInner = document.querySelector(
   ".esds-site-page-shell__header-inner"
@@ -24,7 +23,6 @@ const headerContent = document.querySelector(
 headerContent.style.width = `${headerContent.offsetWidth}px`;
 
 headerWatcher.stateChange(function () {
-  console.log("HEADER STATE CHANGE");
   if (headerWatcher.isAboveViewport) {
     document.body.classList.add("esds-site-page-shell--fixed-header");
   }
@@ -34,7 +32,7 @@ headerWatcher.stateChange(function () {
   }
 });
 
-// LOCAL NAV LAYOUT
+// LOCAL NAV LAYOUT AND BEHAVIOR
 if (document.body.classList.contains("local-nav-layout")) {
   const tabs = document.querySelector("esds-tabs");
   const localNavElement = document.querySelector(
@@ -60,8 +58,24 @@ if (document.body.classList.contains("local-nav-layout")) {
     }
   });
 
+  // Listen for local nav clicks
+  localNavElement.addEventListener("click", (e) => {
+    const link = e.target.closest(".esds-list-item__link");
+    if (link) {
+      const targetId = link.getAttribute("href");
+      const target = document.getElementById(targetId.replace("#", ""));
+      e.preventDefault();
+      const scrollPosition =
+        target.getBoundingClientRect().top + window.pageYOffset - 90; // fixed header height
+      window.scroll({
+        top: scrollPosition,
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  });
+
   tabs.addEventListener("esds-tabs-tab-changed", () => {
-    console.log("tab changed");
     const currentTabId = tabs.currentTabId;
     const headerElements = Array.from(
       document.querySelectorAll(
@@ -69,6 +83,7 @@ if (document.body.classList.contains("local-nav-layout")) {
       )
     );
 
+    // Dynamically build local nav based on tab content
     localNavElement.innerHTML = `
       <esds-list-group size="small" selected-indicators>
         ${headerElements
@@ -84,7 +99,6 @@ if (document.body.classList.contains("local-nav-layout")) {
               headerCounter < 10 &&
               document.getElementById(headerId) !== null
             ) {
-              console.log(headerId);
               headerId = `${calculatedHeaderId}--${headerCounter}`;
               headerCounter++;
             }
