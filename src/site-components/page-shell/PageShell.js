@@ -60,6 +60,31 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
     this.requestUpdate();
   }
 
+  firstUpdated() {
+    const header = this.querySelector(".esds-site-page-shell__header");
+    header.style.height = `${header.offsetHeight}px`;
+    const headerInner = this.querySelector(
+      ".esds-site-page-shell__header-inner"
+    );
+    let headerWatcher = scrollMonitor.create(header);
+
+    const headerContent = this.querySelector(
+      ".esds-site-page-shell__header-content"
+    );
+
+    // headerContent.style.width = `${headerContent.offsetWidth}px`;
+
+    headerWatcher.stateChange(() => {
+      if (headerWatcher.isAboveViewport) {
+        this.classList.add("esds-site-page-shell--fixed-header");
+      }
+
+      if (headerWatcher.isFullyInViewport) {
+        this.classList.remove("esds-site-page-shell--fixed-header");
+      }
+    });
+  }
+
   render() {
     return html`
       <div
@@ -82,7 +107,9 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
           </div>
         </div>
         <div class="esds-site-page-shell__content">
-          <s-slot name="deck"></s-slot>
+          <div class="esds-site-page-shell__header">
+            <s-slot name="deck"></s-slot>
+          </div>
           <div class="esds-site-page-shell__body">
             <div class="esds-site-page-shell__body-inner">
               <s-slot></s-slot>

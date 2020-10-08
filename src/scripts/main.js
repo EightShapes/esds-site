@@ -9,54 +9,33 @@ import "../site-components/page-shell/PageShell.js";
 const scrollMonitor = require("scrollmonitor");
 
 // DECK MONITOR
-const header = document.querySelector(".esds-site-page-shell__header");
-header.style.height = `${header.offsetHeight}px`;
-const headerInner = document.querySelector(
-  ".esds-site-page-shell__header-inner"
-);
-let headerWatcher = scrollMonitor.create(header);
-
-const headerContent = document.querySelector(
-  ".esds-site-page-shell__header-content"
-);
-
-headerContent.style.width = `${headerContent.offsetWidth}px`;
-
-headerWatcher.stateChange(function () {
-  if (headerWatcher.isAboveViewport) {
-    document.body.classList.add("esds-site-page-shell--fixed-header");
-  }
-
-  if (headerWatcher.isFullyInViewport) {
-    document.body.classList.remove("esds-site-page-shell--fixed-header");
-  }
-});
 
 // LOCAL NAV LAYOUT AND BEHAVIOR
 if (document.body.classList.contains("local-nav-layout")) {
-  const tabs = document.querySelector("esds-tabs");
   const localNavElement = document.querySelector(
     ".esds-site-component-layout-body__local-nav-inner"
   );
 
-  const localNavWrap = document.querySelector(
-    ".esds-site-component-layout-body__local-nav-inner"
+  const localNavContainer = document.querySelector(
+    ".esds-site-component-layout-body__local-nav"
   );
-  const elementWatcher = scrollMonitor.create(localNavWrap, 100);
+  const localNavWatcher = scrollMonitor.create(localNavContainer, 100);
 
-  elementWatcher.stateChange(function () {
-    if (elementWatcher.isAboveViewport) {
-      localNavWrap.classList.add(
-        "esds-site-component-layout-body__local-nav-inner--fixed"
-      );
-    }
+  // localNavWatcher.stateChange(function () {
+  //   console.log("STATE CHANGE", localNavWatcher.top);
+  //   if (localNavWatcher.top <= 0) {
+  //     localNavElement.classList.add(
+  //       "esds-site-component-layout-body__local-nav-inner--fixed"
+  //     );
+  //   }
 
-    if (elementWatcher.isFullyInViewport) {
-      localNavWrap.classList.remove(
-        "esds-site-component-layout-body__local-nav-inner--fixed"
-      );
-    }
-  });
+  //   if (localNavWatcher.top > 0) {
+  //     console.log("FULLY IN");
+  //     localNavElement.classList.remove(
+  //       "esds-site-component-layout-body__local-nav-inner--fixed"
+  //     );
+  //   }
+  // });
 
   // Listen for local nav clicks
   localNavElement.addEventListener("click", (e) => {
@@ -65,8 +44,16 @@ if (document.body.classList.contains("local-nav-layout")) {
       const targetId = link.getAttribute("href");
       const target = document.getElementById(targetId.replace("#", ""));
       e.preventDefault();
+
+      const pageShell = document.querySelector("esds-site-page-shell");
+      const headerOffset = pageShell.classList.contains(
+        "esds-site-page-shell--fixed-header"
+      )
+        ? 90
+        : 315;
+
       const scrollPosition =
-        target.getBoundingClientRect().top + window.pageYOffset - 90; // fixed header height
+        target.getBoundingClientRect().top - headerOffset + window.pageYOffset; // fixed header height
       window.scroll({
         top: scrollPosition,
         left: 0,
@@ -75,6 +62,20 @@ if (document.body.classList.contains("local-nav-layout")) {
     }
   });
 
+  const tabs = document.querySelector("esds-tabs");
+  // When a tab is clicked
+  tabs.addEventListener("click", (e) => {
+    // If a tab element is clicked
+    if (e.target.closest(".esds-tabs__tab")) {
+      // Scroll back to the top of the content
+      window.scroll({
+        top: 60,
+        left: 0,
+      });
+    }
+  });
+
+  // After the tab content has loaded
   tabs.addEventListener("esds-tabs-tab-changed", () => {
     const currentTabId = tabs.currentTabId;
     const headerElements = Array.from(

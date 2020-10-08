@@ -8,6 +8,9 @@ $esds-site-nav-width: 250px;
 $esds-site-nav-on-canvas-at: 1086px;
 $esds-fixed-header-transition-timing: 0.5s;
 
+$esds-header-height-default: 315px;
+$esds-header-height-compact: 90px;
+
 html,
 body {
   margin: 0;
@@ -71,7 +74,23 @@ body {
 
 // PAGE CONTENT
 .esds-site-page-shell__content {
+  display: flex;
   flex: 1 1 100%;
+  flex-direction: column;
+}
+
+.esds-site-page-shell__header {
+  height: $esds-header-height-default;
+}
+
+.esds-site-page-shell__body {
+  // margin-top: -220px;
+  margin-top: 0;
+  transition: margin $esds-fixed-header-transition-timing;
+
+  .esds-site-page-shell--fixed-header & {
+    margin-top: -180px;
+  }
 }
 
 .esds-site-page-shell__header-inner {
