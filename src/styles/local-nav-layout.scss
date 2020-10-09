@@ -1,9 +1,14 @@
 @use '../../node_modules/@eightshapes/esds-visual-style/src/esds-visual-style' as *;
 
 $esds-local-nav-visible-at: 1118px;
+$esds-site-nav-on-canvas-at: 1086px;
 
 .esds-site-component-layout-body {
-  display: flex;
+  display: block;
+
+  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
+    display: flex;
+  }
 }
 
 .esds-site-component-layout-body__content {
@@ -38,12 +43,17 @@ $esds-local-nav-visible-at: 1118px;
 }
 
 .esds-tabs__tablist {
-  transform: translateY(-44px);
+  position: fixed;
+  transform: translateY(-68px);
   transition: transform 0.5s;
+
+  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
+    transform: translateY(-44px);
+  }
 
   .esds-site-page-shell--fixed-header & {
     position: fixed;
     transform: translateY(-113px);
-    z-index: 300;
+    z-index: 280;
   }
 }

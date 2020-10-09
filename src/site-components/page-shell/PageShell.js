@@ -2,6 +2,7 @@ import { html, LitElement } from "lit-element";
 import { ifDefined } from "lit-html/directives/if-defined";
 import { unsafeHTML } from "lit-html/directives/unsafe-html";
 import { Slotify } from "@eightshapes/slotify";
+import { EsdsIconViewaslist } from "@eightshapes/esds-icons";
 
 /**
  * @element esds-site-page-shell
@@ -103,14 +104,13 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
           : ""}"
       >
         <div class="esds-site-page-shell__nav">
-          <button
-            type="button"
+          <esds-button
             @click="${this.toggleNav}"
             class="esds-site-page-shell__nav-toggle"
-          >
-            Show Nav
-          </button>
-
+            icon="${EsdsIconViewaslist}"
+            size="small"
+            variant="flat"
+          ></esds-button>
           <div class="esds-site-page-shell__nav-inner">
             <s-slot name="nav"></s-slot>
           </div>
