@@ -12,6 +12,8 @@ const scrollMonitor = require("scrollmonitor");
 
 // LOCAL NAV LAYOUT AND BEHAVIOR
 if (document.body.classList.contains("local-nav-layout")) {
+  let localNavScrollMonitoring = false;
+
   const localNavElement = document.querySelector(
     ".esds-site-component-layout-body__local-nav-inner"
   );
@@ -20,22 +22,6 @@ if (document.body.classList.contains("local-nav-layout")) {
     ".esds-site-component-layout-body__local-nav"
   );
   const localNavWatcher = scrollMonitor.create(localNavContainer, 100);
-
-  // localNavWatcher.stateChange(function () {
-  //   console.log("STATE CHANGE", localNavWatcher.top);
-  //   if (localNavWatcher.top <= 0) {
-  //     localNavElement.classList.add(
-  //       "esds-site-component-layout-body__local-nav-inner--fixed"
-  //     );
-  //   }
-
-  //   if (localNavWatcher.top > 0) {
-  //     console.log("FULLY IN");
-  //     localNavElement.classList.remove(
-  //       "esds-site-component-layout-body__local-nav-inner--fixed"
-  //     );
-  //   }
-  // });
 
   // Listen for local nav clicks
   const resetLocalNavSelected = () => {
@@ -52,6 +38,7 @@ if (document.body.classList.contains("local-nav-layout")) {
     const listItem = e.target.closest("esds-list-item");
 
     if (listItem) {
+      localNavScrollMonitoring = false;
       resetLocalNavSelected();
       listItem.selected = true;
     }
@@ -75,6 +62,10 @@ if (document.body.classList.contains("local-nav-layout")) {
         left: 0,
         behavior: "smooth",
       });
+
+      window.setTimeout(() => {
+        localNavScrollMonitoring = true;
+      }, 500);
     }
   });
 
@@ -83,17 +74,23 @@ if (document.body.classList.contains("local-nav-layout")) {
   tabs.addEventListener("click", (e) => {
     // If a tab element is clicked
     if (e.target.closest(".esds-tabs__tab")) {
+      localNavScrollMonitoring = false;
       // Scroll back to the top of the content
       window.scroll({
         top: 60,
         left: 0,
       });
+
+      window.setTimeout(() => {
+        localNavScrollMonitoring = true;
+      }, 500);
     }
   });
 
   // After the tab content has loaded
   tabs.addEventListener("esds-tabs-tab-changed", () => {
     const currentTabId = tabs.currentTabId;
+    const windowHeight = window.innerHeight;
     const headerElements = Array.from(
       document.querySelectorAll(
         `#${currentTabId} .esds-site-component-layout-body__tab > h2, #${currentTabId} .esds-site-component-layout-body__tab > h3`
@@ -105,40 +102,42 @@ if (document.body.classList.contains("local-nav-layout")) {
       <esds-list-group size="small" selected-indicators header="Contents">
         ${headerElements
           .map((he, index) => {
-            let calculatedHeaderId = he.textContent
-              .toLowerCase()
-              .replace(/[^a-z0-9]+/g, "-")
-              .replace(/(^-|-$)/g, "");
+            let headerId = he.getAttribute("id");
+            if (headerId === null) {
+              let calculatedHeaderId = he.textContent
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/(^-|-$)/g, "");
 
-            let headerCounter = 0;
-            let headerId = calculatedHeaderId;
-            while (
-              headerCounter < 10 &&
-              document.getElementById(headerId) !== null
-            ) {
-              headerId = `${calculatedHeaderId}--${headerCounter}`;
-              headerCounter++;
+              let headerCounter = 0;
+              headerId = calculatedHeaderId;
+              while (
+                headerCounter < 10 &&
+                document.getElementById(headerId) !== null
+              ) {
+                headerId = `${calculatedHeaderId}--${headerCounter}`;
+                headerCounter++;
+              }
+
+              he.setAttribute("id", headerId);
             }
-
-            he.setAttribute("id", headerId);
 
             var myElement = document.getElementById(headerId);
 
-            var elementWatcher = scrollMonitor.create(myElement);
+            const offset = windowHeight - 180;
+            var elementWatcher = scrollMonitor.create(myElement, {
+              top: 140,
+              bottom: offset,
+            });
 
-            elementWatcher.enterViewport(function () {
+            elementWatcher.partiallyExitViewport(function () {
               const listItem = document.querySelector(
                 `esds-list-item[href="#${headerId}"]`
               );
-              console.log(headerId, listItem);
-              if (listItem) {
+              if (listItem && localNavScrollMonitoring) {
                 resetLocalNavSelected();
                 listItem.selected = true;
               }
-              // console.log("I have entered the viewport", headerId);
-            });
-            elementWatcher.exitViewport(function () {
-              // console.log("I have left the viewport", headerId);
             });
 
             if (he.tagName === "H2") {
@@ -154,5 +153,7 @@ if (document.body.classList.contains("local-nav-layout")) {
           .join("")}
       </esds-list-group>
     `;
+
+    localNavScrollMonitoring = true;
   });
 }
