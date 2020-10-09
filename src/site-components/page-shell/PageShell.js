@@ -85,6 +85,16 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
     });
   }
 
+  renderHeader() {
+    if (this.hasSlotableContent("deck")) {
+      return html` <div class="esds-site-page-shell__header">
+        <s-slot name="deck"></s-slot>
+      </div>`;
+    } else {
+      return html`<s-slot name="deck"></s-slot>`;
+    }
+  }
+
   render() {
     return html`
       <div
@@ -92,7 +102,6 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
           ? "esds-site-page-shell--visible-nav"
           : ""}"
       >
-        <div class="esds-site-page-shell__header"></div>
         <div class="esds-site-page-shell__nav">
           <button
             type="button"
@@ -107,9 +116,7 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
           </div>
         </div>
         <div class="esds-site-page-shell__content">
-          <div class="esds-site-page-shell__header">
-            <s-slot name="deck"></s-slot>
-          </div>
+          ${this.renderHeader()}
           <div class="esds-site-page-shell__body">
             <div class="esds-site-page-shell__body-inner">
               <s-slot></s-slot>
