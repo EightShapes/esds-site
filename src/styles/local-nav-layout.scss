@@ -47,10 +47,6 @@ $esds-site-nav-on-canvas-at: 1086px;
   transform: translateY(-68px);
   transition: transform 0.5s;
 
-  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
-    transform: translateY(-44px);
-  }
-
   .esds-site-page-shell--fixed-header & {
     position: fixed;
     transform: translateY(-113px);
