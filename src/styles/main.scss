@@ -1,9 +1,14 @@
+@use '@eightshapes/esds-example-code-pair/dist/esds-example-code-pair.css';
 @use '@eightshapes/esds-visual-style/src/esds-visual-style' as *;
 @use 'shared' as *;
-@use 'component-layout';
+@use 'local-nav-layout';
 
-$esds-site-nav-width: 200px;
+$esds-site-nav-width: 250px;
 $esds-site-nav-on-canvas-at: 1086px;
+$esds-fixed-header-transition-timing: 0.5s;
+
+$esds-header-height-default: 315px;
+$esds-header-height-compact: 90px;
 
 html,
 body {
@@ -31,7 +36,7 @@ body {
   // flex: 0 0 $esds-site-nav-width;
   transform: translateX(-$esds-site-nav-width);
   width: $esds-site-nav-width;
-  z-index: 100;
+  z-index: 300;
 
   .esds-site-page-shell--visible-nav & {
     transform: translateX(0);
@@ -44,10 +49,12 @@ body {
   }
 }
 
-.esds-site-page-shell__nav-toggle {
+.esds-site-page-shell__nav-toggle .esds-button {
   left: 100%;
+  margin: 0;
   position: absolute;
   top: 0;
+  z-index: 400;
 
   @media screen and (min-width: $esds-site-nav-on-canvas-at) {
     display: none;
@@ -56,22 +63,76 @@ body {
 
 .esds-site-page-shell__nav-inner {
   height: 100vh;
-  overflow-y: scroll;
-  padding: 0 $esds-space-generic-half-x 0 $esds-space-generic-three-quarter-x;
-  // position: fixed;
+  position: sticky;
+  top: 0;
   width: $esds-site-nav-width;
+}
+
+.esds-site-page-shell__nav-content {
+  display: flex;
+  flex-direction: column;
 }
 
 // PAGE CONTENT
 .esds-site-page-shell__content {
+  display: flex;
   flex: 1 1 100%;
+  flex-direction: column;
 }
 
 .esds-site-page-shell__header {
-  background-color: $esds-color-background-light-secondary;
+  height: $esds-header-height-default;
+}
+
+.esds-site-page-shell__body {
+  // margin-top: -220px;
+  margin-top: 0;
+  transition: margin $esds-fixed-header-transition-timing;
+
+  .esds-site-page-shell--fixed-header & {
+    margin-top: -180px;
+  }
 }
 
 .esds-site-page-shell__header-inner {
+  background-color: $esds-color-background-light-secondary;
+  width: 100%;
+
+  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
+    width: calc(100vw - #{$esds-site-nav-width});
+  }
+}
+
+.esds-site-deck__body {
+  @include esds-font-size("body-l", $responsive: true);
+  margin: 0;
+  max-width: 850px;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.esds-site-page-shell--fixed-header {
+  .esds-site-page-shell__header-inner {
+    position: fixed;
+    z-index: 100;
+  }
+
+  .esds-site-deck {
+    height: 90px;
+  }
+
+  .esds-site-deck__body {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .esds-site-deck__title {
+    @include esds-heading-level-4;
+  }
+}
+
+.esds-site-page-shell__header-content {
   @include esds-site-content-max-width;
 }
 
@@ -79,17 +140,54 @@ body {
   @include esds-site-content-max-width;
 }
 
+$esds-logo-height: 100px;
+
 .esds-site-page-shell__logo {
+  align-items: center;
+  display: flex;
   fill: white;
+  flex: 0 0 $esds-logo-height;
+  margin: 0;
+  padding: 0 $esds-space-4-x 0 $esds-space-three-quarter-x;
+}
+
+.esds-site-page-shell__nav-scroll-wrapper {
+  flex: 1 1 auto;
+  height: calc(100vh - #{$esds-logo-height});
+  overflow-y: auto;
 }
 
 // DECK
 .esds-site-deck {
+  @include esds-box-sizing;
   align-items: center;
   display: flex;
   height: 315px;
+  padding-bottom: 44px;
+  transition: height 0.5s;
 }
 
 .esds-site-deck__title {
+  @include esds-heading-level-1($responsive: true);
   margin: 0;
+  transition: font-size 0.5s;
+}
+
+.esds-site-deck__content {
+  transform: translateY(0);
+  transition: transform $esds-fixed-header-transition-timing;
+
+  .esds-site-page-shell--fixed-header & {
+    transform: translateY(0);
+  }
+
+  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
+    transform: translateY(44px);
+    width: calc(100vw - #{$esds-site-nav-width});
+  }
+}
+
+// RENDERED EXAMPLE OVERRIDES
+.esds-rendered-example {
+  overflow: auto;
 }

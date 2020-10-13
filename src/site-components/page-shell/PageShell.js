@@ -2,6 +2,7 @@ import { html, LitElement } from "lit-element";
 import { ifDefined } from "lit-html/directives/if-defined";
 import { unsafeHTML } from "lit-html/directives/unsafe-html";
 import { Slotify } from "@eightshapes/slotify";
+import { EsdsIconViewaslist } from "@eightshapes/esds-icons";
 
 /**
  * @element esds-site-page-shell
@@ -60,6 +61,41 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
     this.requestUpdate();
   }
 
+  firstUpdated() {
+    const header = this.querySelector(".esds-site-page-shell__header");
+    header.style.height = `${header.offsetHeight}px`;
+    const headerInner = this.querySelector(
+      ".esds-site-page-shell__header-inner"
+    );
+    let headerWatcher = scrollMonitor.create(header);
+
+    const headerContent = this.querySelector(
+      ".esds-site-page-shell__header-content"
+    );
+
+    // headerContent.style.width = `${headerContent.offsetWidth}px`;
+
+    headerWatcher.stateChange(() => {
+      if (headerWatcher.isAboveViewport) {
+        this.classList.add("esds-site-page-shell--fixed-header");
+      }
+
+      if (headerWatcher.isFullyInViewport) {
+        this.classList.remove("esds-site-page-shell--fixed-header");
+      }
+    });
+  }
+
+  renderHeader() {
+    if (this.hasSlotableContent("deck")) {
+      return html` <div class="esds-site-page-shell__header">
+        <s-slot name="deck"></s-slot>
+      </div>`;
+    } else {
+      return html`<s-slot name="deck"></s-slot>`;
+    }
+  }
+
   render() {
     return html`
       <div
@@ -67,22 +103,20 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
           ? "esds-site-page-shell--visible-nav"
           : ""}"
       >
-        <div class="esds-site-page-shell__header"></div>
         <div class="esds-site-page-shell__nav">
-          <button
-            type="button"
+          <esds-button
             @click="${this.toggleNav}"
             class="esds-site-page-shell__nav-toggle"
-          >
-            Show Nav
-          </button>
-
+            icon="${EsdsIconViewaslist}"
+            size="small"
+            variant="flat"
+          ></esds-button>
           <div class="esds-site-page-shell__nav-inner">
             <s-slot name="nav"></s-slot>
           </div>
         </div>
         <div class="esds-site-page-shell__content">
-          <s-slot name="deck"></s-slot>
+          ${this.renderHeader()}
           <div class="esds-site-page-shell__body">
             <div class="esds-site-page-shell__body-inner">
               <s-slot></s-slot>

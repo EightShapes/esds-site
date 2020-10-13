@@ -1,6 +1,8 @@
 ---
 layout: base.njk
-title: Eleventy Heartbeat Test
+title: EightShapes Design System
 ---
 
-<a href="/components/card">Card</a>
+# Homepage
+
+## EightShapes Design System

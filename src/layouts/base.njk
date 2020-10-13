@@ -17,131 +17,69 @@ title: EightShapes Design System
         <meta http-equiv="cleartype" content="on">
         <title>{{ title }}</title>
         <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/styles/esds-example-code-pair.css">
-        <link rel="stylesheet" href="/styles/esds-rendered-example.css">
         <link rel="stylesheet" href="/styles/main.css">
         {% block head_elements %}
         {% endblock %}
     </head>
     <body class="{{ body_classes }}">
       <esds-site-page-shell>
-        <div slot="nav">
+        <div class="esds-site-page-shell__nav-content esds-container--dark-primary" slot="nav">
           <h1 class="esds-site-page-shell__logo">
             {% include '../svg/eightshapes-logo.svg' %}
           </h1>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li>Getting Started</li>
-            <li>Release History</li>
-            <li><a href="/components/card">Card</a></li>
-            <li><a href="/components/thumbnail">Thumbnail</a></li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-            <li>Nav Sample</li>
-          </ul>
+          <div class="esds-site-page-shell__nav-scroll-wrapper">
+            <esds-list-group>
+              <esds-list-item href="/" {% if page.url == post.url %}selected{% endif %}>Home</esds-list-item>
+              <esds-list-group header="UI Components" collapsible>
+                {%- for post in collections['Component Page'] -%}
+                  <esds-list-item href="{{ post.url }}" {% if page.url == post.url %}selected{% endif %}>{{ post.data.title }}</esds-list-item>
+                {%- endfor -%}
+              </esds-list-group>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-item href="#">Testing</esds-list-item>
+            </esds-list-group>
+          </div>
         </div>
         {% if deck %}
-          <div slot="deck" class="esds-site-page-shell__header">
+          <div slot="deck">
             <div class="esds-site-page-shell__header-inner">
-              <div class="esds-site-deck">
-                <div class="esds-site-deck__content">
-                  <h1 class="esds-site-deck__title">{{ title }}</h1>
-                  <p class="esds-site-deck__body">
-                    {{ deck }}
-                  </p>
+              <div class="esds-site-page-shell__header-content">
+                <div class="esds-site-deck">
+                  <div class="esds-site-deck__content">
+                    <h1 class="esds-site-deck__title">{{ title }}</h1>
+                    <p class="esds-site-deck__body">
+                      {{ deck }}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

@@ -10,6 +10,32 @@ module.exports = (eleventyConfig) => {
       "styles/esds-rendered-example.css",
   });
 
+  eleventyConfig.addFilter("componentTabSort", function (tabs) {
+    const componentTabOrder = [
+      "Overview",
+      "Code API",
+      "Design",
+      "Writing",
+      "Accessibility",
+      "History",
+    ];
+    let sortedTabs = [];
+    componentTabOrder.forEach((tabLabel) => {
+      const foundTab = tabs.find((t) => t.data.title === tabLabel);
+      if (foundTab !== undefined) {
+        sortedTabs.push(foundTab);
+      }
+    });
+
+    let otherTabs = tabs.filter(
+      (t) => !componentTabOrder.includes(t.data.title)
+    );
+
+    otherTabs.sort((a, b) => (b.data.title < a.data.title ? 1 : -1));
+
+    return [...sortedTabs, ...otherTabs];
+  });
+
   eleventyConfig.addPassthroughCopy({ "dist/scripts/**/*.js": "scripts" });
   eleventyConfig.addPassthroughCopy({ "dist/styles/**/*.css": "styles" });
   eleventyConfig.addPassthroughCopy({ "src/svg/**/*": "svg" });

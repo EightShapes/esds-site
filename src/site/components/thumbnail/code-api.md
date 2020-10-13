@@ -1,5 +1,5 @@
 ---
-title: Code
+title: Code API
 tags: thumbnail_tabs
 permalink: false
 ---
