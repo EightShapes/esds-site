@@ -3,6 +3,7 @@ import "@eightshapes/esds-rendered-example/dist/esds-rendered-example-web-compon
 import "@eightshapes/esds-code-snippet/dist/esds-code-snippet-web-component.js";
 import "@eightshapes/esds-do-dont/dist/esds-do-dont-web-component.js";
 import "@eightshapes/esds-icon/dist/esds-icon-web-component.js";
+import "@eightshapes/esds-image-with-caption/dist/esds-image-with-caption-web-component.js";
 import "@eightshapes/esds-button/dist/esds-button-web-component.js";
 import "@eightshapes/esds-card/dist/esds-card-web-component.js";
 import "@eightshapes/esds-tabs/dist/esds-tabs-web-component.js";
