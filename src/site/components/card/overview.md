@@ -22,6 +22,28 @@ By default, always include a [thumbnail], title, and description.
 </esds-rendered-example>
 </esds-example-code-pair>
 
+<esds-do-dont>
+  <esds-do
+    caption="Use capitalization for languages that allow capitalization."
+    src="/images/landscape.png"
+  ></esds-do>
+  <esds-dont
+    caption="Don't wrap text. For maximum legibility, a text label should remain on a single line."
+    src="/images/portrait.jpg"
+  ></esds-dont>
+</esds-do-dont>
+
+<esds-do-dont>
+  <esds-do caption="Use a single primary button as a call to action.">
+    <esds-button>Subscribe</esds-button>
+    <esds-button variant="secondary">Cancel</esds-button>
+  </esds-do>
+  <esds-dont caption="Don't use more than one primary button for a single action.">
+    <esds-button>Subscribe</esds-button>
+    <esds-button>Cancel</esds-button>
+  </esds-dont>
+</esds-do-dont>
+
 ### Content area
 
 Customize additional content in the `content-area` slot, such as pricing, metadata, and other indicators.

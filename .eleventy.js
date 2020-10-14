@@ -1,6 +1,8 @@
 module.exports = (eleventyConfig) => {
   eleventyConfig.setUseGitIgnore(false);
 
+  eleventyConfig.addPassthroughCopy({ "src/images": "images" });
+
   eleventyConfig.addPassthroughCopy({
     "node_modules/@eightshapes/esds-example-code-pair/dist/esds-example-code-pair.css":
       "styles/esds-example-code-pair.css",
