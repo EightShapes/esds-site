@@ -52,11 +52,7 @@ if (document.body.classList.contains("local-nav-layout")) {
       e.preventDefault();
 
       const pageShell = document.querySelector("esds-site-page-shell");
-      const headerOffset = pageShell.classList.contains(
-        "esds-site-page-shell--fixed-header"
-      )
-        ? 90
-        : 315;
+      const headerOffset = 90;
 
       const scrollPosition =
         target.getBoundingClientRect().top - headerOffset + window.pageYOffset; // fixed header height

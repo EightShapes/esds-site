@@ -22,7 +22,7 @@ title: EightShapes Design System
         {% endblock %}
     </head>
     <body class="{{ body_classes }}">
-      <esds-site-page-shell>
+      <esds-site-page-shell {% if title %}title="{{ title }}"{% endif %} {% if deck %}deck="{{ deck }}"{% endif %}>
         <div class="esds-site-page-shell__nav-content esds-container--dark-primary" slot="nav">
           <h1 class="esds-site-page-shell__logo">
             {% include '../svg/eightshapes-logo.svg' %}
@@ -69,22 +69,6 @@ title: EightShapes Design System
             </esds-list-group>
           </div>
         </div>
-        {% if deck %}
-          <div slot="deck">
-            <div class="esds-site-page-shell__header-inner">
-              <div class="esds-site-page-shell__header-content">
-                <div class="esds-site-deck">
-                  <div class="esds-site-deck__content">
-                    <h1 class="esds-site-deck__title">{{ title }}</h1>
-                    <p class="esds-site-deck__body">
-                      {{ deck }}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        {% endif %}
         {{ content | safe }}
       </esds-site-page-shell>
       <script src="/scripts/main.js"></script>

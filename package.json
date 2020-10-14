@@ -9,7 +9,7 @@
     "watch:scripts": "chokidar \"src/scripts/*.js\" \"src/site-components/**/*.js\" -c \"npm run build:scripts\"",
     "build:scripts": "npx esbuild --bundle src/scripts/main.js --outfile=dist/scripts/main.js --format=esm",
     "build:styles": "npx sass --load-path=node_modules src/styles:dist/styles",
-    "watch:styles": "chokidar \"src/styles/**/*.scss\" -c \"npm run build:styles\"",
+    "watch:styles": "chokidar \"src/styles/**/*.scss\" \"src/site-components/**/*.scss\" -c \"npm run build:styles\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -30,6 +30,7 @@
     "@eightshapes/esds-tabs": "^0.3.1",
     "@eightshapes/esds-tokens": "^0.4.1",
     "@eightshapes/esds-visual-style": "^0.4.0",
+    "@terwanerik/scrolltrigger": "^1.0.5",
     "scrollmonitor": "^1.2.4"
   },
   "devDependencies": {

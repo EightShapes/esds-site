@@ -20,10 +20,8 @@ By default, always include a [thumbnail], title, and description.
 
 Customize additional content in the `content-area` slot, such as pricing, metadata, and other indicators.
 
-<esds-example-code-pair source='<esds-card title="Example Card on Doc Site"></esds-card>'>
-<esds-rendered-example label="default">
+<esds-example-code-pair>
   <esds-card title="Content"></esds-card>
-</esds-rendered-example>
 </esds-example-code-pair>
 
 ### Action area
@@ -63,6 +61,18 @@ Wrap multiple cards in a cards grid container to arrange them in a row or multi-
   ></esds-do>
   <esds-dont
     caption="Don't wrap text. For maximum legibility, a text label should remain on a single line."
+    src="/images/portrait.jpg"
+  ></esds-dont>
+  <esds-do
+    caption="Use capitalization for languages that allow capitalization. Use capitalization for languages that allow capitalization. Use capitalization for languages that allow capitalization. Use capitalization for languages that allow capitalization. Use capitalization for languages that allow capitalization."
+    src="/images/landscape.png"
+  ></esds-do>
+  <esds-dont
+    caption="Don't wrap text. For maximum legibility, a text label should remain on a single line."
+    src="/images/portrait.jpg"
+  ></esds-dont>
+  <esds-dont
+    caption="Don't wrap text. For maximum legibility, a text label should remain on a single line. Don't wrap text. For maximum legibility, a text label should remain on a single line."
     src="/images/portrait.jpg"
   ></esds-dont>
 </esds-do-dont>

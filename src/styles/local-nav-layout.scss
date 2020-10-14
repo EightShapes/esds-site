@@ -3,6 +3,10 @@
 $esds-local-nav-visible-at: 1118px;
 $esds-site-nav-on-canvas-at: 1086px;
 
+.esds-site-page-shell__body {
+  position: relative;
+}
+
 .esds-site-component-layout-body {
   display: block;
 
@@ -40,16 +44,4 @@ $esds-site-nav-on-canvas-at: 1086px;
   position: fixed;
   top: 100px;
   z-index: 300;
-}
-
-.esds-tabs__tablist {
-  position: fixed;
-  transform: translateY(-68px);
-  transition: transform 0.5s;
-
-  .esds-site-page-shell--fixed-header & {
-    position: fixed;
-    transform: translateY(-113px);
-    z-index: 280;
-  }
 }
