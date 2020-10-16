@@ -30,8 +30,7 @@
     "@eightshapes/esds-tabs": "^0.3.1",
     "@eightshapes/esds-tokens": "^0.4.1",
     "@eightshapes/esds-visual-style": "^0.4.0",
-    "@terwanerik/scrolltrigger": "^1.0.5",
-    "scrollmonitor": "^1.2.4"
+    "@terwanerik/scrolltrigger": "^1.0.5"
   },
   "devDependencies": {
     "@eightshapes/slotify": "^0.6.1",

@@ -1,6 +1,4 @@
 import { html, LitElement } from "lit-element";
-import { ifDefined } from "lit-html/directives/if-defined";
-import { unsafeHTML } from "lit-html/directives/unsafe-html";
 import { Slotify } from "@eightshapes/slotify";
 import { EsdsIconViewaslist } from "@eightshapes/esds-icons";
 import ScrollTrigger from "@terwanerik/scrolltrigger";
@@ -16,36 +14,12 @@ import ScrollTrigger from "@terwanerik/scrolltrigger";
 export class EsdsSitePageShell extends Slotify(LitElement) {
   static get properties() {
     return {
-      // /*
-      //  * Text description rendered below the title
-      //  * @type String
-      //  */
-      // description: { type: String },
-      // /*
-      //  * Destination when card is clicked
-      //  * @type String
-      //  */
-      // href: { type: String },
-      // /*
-      //  * Image crop behavior
-      //  * @type {'fill'|'contain'|'cover'|'none'|'scale-down'}
-      //  */
-      // imgCropType: { type: String, attribute: "img-crop-type" },
-      // /*
-      //  * Relative path to the image displayed on the card
-      //  * @type String
-      //  */
-      // imgSrc: { type: String, attribute: "img-src" },
-      // /*
-      //  * Metadata text displayed on the card
-      //  * @type String
-      //  */
-      // metadata: { type: String },
       /*
        * Deck in the page header
        * @type String
        */
       deck: { type: String },
+
       /*
        * Title in the page header
        * @type String
@@ -58,17 +32,14 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
     super();
     this.visibleNav = false;
     this.trigger = new ScrollTrigger({
-      toggle: {
-        callback: {
-          visible(something, other) {
-            console.log(something, other);
-          },
-        },
+      scroll: {
+        sustain: 0,
       },
     });
-    // // Prop Defaults
-    // this.imgCropType = "cover";
-    // EsdsThumbnail.define("esds-card"); // Defines <esds-card-thumbnail>
+    this.collapsedHeaderHeight = 90;
+    this.collapsedTitleFontSize = 24;
+    this.collapsedTitleOffset = 16;
+    this.collapsedLocalNavOffset = 120;
   }
 
   toggleNav(e) {
@@ -76,43 +47,65 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
     this.requestUpdate();
   }
 
+  selectAnimatableHeaderElements() {
+    return {
+      header: this.querySelector(".esds-site-page-shell__header"),
+      headerInner: this.querySelector(".esds-site-page-shell__header-inner"),
+      deck: this.querySelector(".esds-site-page-shell__deck"),
+      title: this.querySelector(".esds-site-page-shell__title"),
+      body: this.querySelector(".esds-site-page-shell__body"),
+      localNav: this.querySelector(
+        ".esds-site-component-layout-body__local-nav-inner"
+      ),
+    };
+  }
+
+  setCollapsedHeaderState() {
+    const {
+      headerInner,
+      deck,
+      title,
+      body,
+      localNav,
+    } = this.selectAnimatableHeaderElements();
+    if (deck) {
+      deck.style.height = "0px";
+      deck.style.opacity = 0;
+    }
+
+    if (title) {
+      title.style.fontSize = `${this.collapsedTitleFontSize}px`;
+      title.style.marginBottom = "0px";
+      title.style.top = `-${this.collapsedTitleOffset}px`;
+    }
+
+    if (body) {
+      body.style.top = `-${this.collapsedHeaderHeight}px`;
+    }
+
+    if (headerInner) {
+      headerInner.style.height = `${this.collapsedHeaderHeight}px`;
+      headerInner.style.paddingTop = "0px";
+      headerInner.style.paddingBottom = "0px";
+      headerInner.style.position = "fixed";
+    }
+
+    if (localNav) {
+      localNav.style.marginTop = `-${this.collapsedLocalNavOffset}px`;
+    }
+  }
+
   firstUpdated() {
-    // const headerInner = this.querySelector(
-    //   ".esds-site-page-shell__header-inner"
-    // );
-    // let headerWatcher = scrollMonitor.create(header);
+    this.moveTabsToHeader();
 
-    // const headerContent = this.querySelector(
-    //   ".esds-site-page-shell__header-content"
-    // );
-
-    // // headerContent.style.width = `${headerContent.offsetWidth}px`;
-
-    // headerWatcher.stateChange(() => {
-    //   if (headerWatcher.isAboveViewport) {
-    //     this.classList.add("esds-site-page-shell--fixed-header");
-    //   }
-
-    //   if (headerWatcher.isFullyInViewport) {
-    //     this.classList.remove("esds-site-page-shell--fixed-header");
-    //   }
-    // });
-
-    const header = this.querySelector(".esds-site-page-shell__header");
-    const headerInner = this.querySelector(
-      ".esds-site-page-shell__header-inner"
-    );
-    const deck = this.querySelector(".esds-site-page-shell__deck");
-    const title = this.querySelector(".esds-site-page-shell__title");
-    const body = this.querySelector(".esds-site-page-shell__body");
-
-    const tabsHolder = this.querySelector(
-      ".esds-site-page-shell__tabsholder-inner"
-    );
-    const tabSet = this.querySelector(".esds-tabs__tablist");
-
-    // Move tabs to tabsHolder in Inner Header
-    tabsHolder.appendChild(tabSet);
+    const {
+      header,
+      headerInner,
+      deck,
+      title,
+      body,
+      localNav,
+    } = this.selectAnimatableHeaderElements();
 
     const initialHeaderHeight = header.getBoundingClientRect().height;
     const initialDeckHeight = deck.getBoundingClientRect().height;
@@ -128,105 +121,142 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
     );
 
     // set the header's height so it can't be changed
-    header.style.height = `${initialHeaderHeight}px`;
-    deck.style.height = `${initialDeckHeight}px`;
+    if (header) {
+      header.style.height = `${initialHeaderHeight}px`;
+    }
 
-    const collapsedHeaderHeight = 90;
-    const collapsedTitleFontSize = 24;
-    const collapsedTitleOffset = 16;
-    const heightDiff = initialHeaderHeight - collapsedHeaderHeight;
-    const tickHeight = heightDiff / collapsedHeaderHeight;
-    const deckTickHeight = initialDeckHeight / collapsedHeaderHeight;
+    if (deck) {
+      deck.style.height = `${initialDeckHeight}px`;
+    }
+
+    const heightDiff = initialHeaderHeight - this.collapsedHeaderHeight;
+    const tickHeight = heightDiff / this.collapsedHeaderHeight;
+    const deckTickHeight = initialDeckHeight / this.collapsedHeaderHeight;
     const tickTitleFontSize =
-      (initialTitleFontSize - collapsedTitleFontSize) / collapsedHeaderHeight;
-    const tickTitleMargin = initialTitleMargin / collapsedHeaderHeight;
-    const tickHeaderPadding = initialInnerHeaderPadding / collapsedHeaderHeight;
-    const tickOpacity = 1 / collapsedHeaderHeight;
-    const tickTitleOffset = collapsedTitleOffset / collapsedHeaderHeight;
+      (initialTitleFontSize - this.collapsedTitleFontSize) /
+      this.collapsedHeaderHeight;
+    const tickTitleMargin = initialTitleMargin / this.collapsedHeaderHeight;
+    const tickHeaderPadding =
+      initialInnerHeaderPadding / this.collapsedHeaderHeight;
+    const tickOpacity = 1 / this.collapsedHeaderHeight;
+    const tickTitleOffset =
+      this.collapsedTitleOffset / this.collapsedHeaderHeight;
+    const tickLocalNavOffset =
+      this.collapsedLocalNavOffset / this.collapsedHeaderHeight;
 
-    // diff = 383
-    // tick = 383 / 90 == 4.25
-    // 0    473
-    // 1    473 - 4.25 == 468.76
-    // -90  90
     this.trigger.add(header, {
       toggle: {
         callback: {
           visible: (scrollingHeader) => {
-            const rect = scrollingHeader.element.getBoundingClientRect();
-            const position = rect.y;
-            if (position < 0) {
-              headerInner.style.position = "fixed";
-            } else {
-              headerInner.style.position = "relative";
-            }
+            const position = scrollingHeader.element.getBoundingClientRect().y;
+            if (position <= 0 && position >= -this.collapsedHeaderHeight) {
+              if (position < 0) {
+                headerInner.style.position = "fixed";
+              } else {
+                headerInner.style.position = "relative";
+              }
 
-            if (position <= -collapsedHeaderHeight) {
-              headerInner.style.height = `${collapsedHeaderHeight}px`;
-              deck.style.height = "0px";
-              deck.style.opacity = 0;
-              title.style.fontSize = `${collapsedTitleFontSize}px`;
-              title.style.marginBottom = "0px";
-              title.style.top = `-${collapsedTitleOffset}px`;
-              body.style.top = `-${heightDiff}px`;
-              headerInner.style.paddingTop = "0px";
-              headerInner.style.paddingBottom = "0px";
+              if (position <= -this.collapsedHeaderHeight) {
+                this.setCollapsedHeaderState();
+              } else if (position <= 0) {
+                const absPos = Math.abs(position);
+                const newHeaderHeight = Math.min(
+                  initialHeaderHeight - tickHeight * absPos,
+                  initialHeaderHeight
+                );
+
+                const newDeckHeight = Math.min(
+                  initialDeckHeight - deckTickHeight * absPos,
+                  initialDeckHeight
+                );
+
+                const newDeckOpacity = Math.min(1 - tickOpacity * absPos, 1);
+
+                const newTitleFontSize = Math.min(
+                  initialTitleFontSize - tickTitleFontSize * absPos,
+                  initialTitleFontSize
+                );
+
+                const newTitleOffset = Math.min(
+                  0 - tickTitleOffset * absPos,
+                  0
+                );
+
+                const newTitleMargin = Math.min(
+                  initialTitleMargin - tickTitleMargin * absPos,
+                  initialTitleMargin
+                );
+
+                const newBodyTop = Math.min(0 - 1 * absPos, 0);
+
+                const newHeaderPadding = Math.min(
+                  initialInnerHeaderPadding - tickHeaderPadding * absPos,
+                  0
+                );
+
+                const newLocalNavOffset = Math.min(
+                  0 - tickLocalNavOffset * absPos,
+                  0
+                );
+
+                if (deck) {
+                  deck.style.height = `${newDeckHeight}px`;
+                  deck.style.opacity = newDeckOpacity;
+                }
+
+                if (title) {
+                  title.style.fontSize = `${newTitleFontSize}px`;
+                  title.style.marginBottom = `${newTitleMargin}px`;
+                  title.style.top = `${newTitleOffset}px`;
+                }
+
+                if (body) {
+                  body.style.top = `${newBodyTop}px`;
+                }
+
+                if (headerInner) {
+                  headerInner.style.height = `${newHeaderHeight}px`;
+                  headerInner.style.paddingTop = `${newHeaderPadding}px`;
+                  headerInner.style.paddingBottom = `${newHeaderPadding}px`;
+                }
+
+                if (localNav) {
+                  localNav.style.marginTop = `${newLocalNavOffset}px`;
+                }
+              }
             } else if (position <= 0) {
-              const newHeaderHeight = Math.min(
-                initialHeaderHeight - tickHeight * Math.abs(position),
-                initialHeaderHeight
-              );
-
-              const newDeckHeight = Math.min(
-                initialDeckHeight - deckTickHeight * Math.abs(position),
-                initialDeckHeight
-              );
-
-              const newDeckOpacity = Math.min(
-                1 - tickOpacity * Math.abs(position),
-                1
-              );
-
-              const newTitleFontSize = Math.min(
-                initialTitleFontSize - tickTitleFontSize * Math.abs(position),
-                initialTitleFontSize
-              );
-
-              const newTitleOffset = Math.min(
-                0 - tickTitleOffset * Math.abs(position),
-                0
-              );
-
-              const newTitleMargin = Math.min(
-                initialTitleMargin - tickTitleMargin * Math.abs(position),
-                initialTitleMargin
-              );
-
-              const newBodyTop = Math.min(
-                0 - tickHeight * Math.abs(position),
-                0
-              );
-
-              const newHeaderPadding = Math.min(
-                initialInnerHeaderPadding -
-                  tickHeaderPadding * Math.abs(position),
-                0
-              );
-
-              headerInner.style.height = `${newHeaderHeight}px`;
-              deck.style.height = `${newDeckHeight}px`;
-              deck.style.opacity = newDeckOpacity;
-              title.style.fontSize = `${newTitleFontSize}px`;
-              title.style.marginBottom = `${newTitleMargin}px`;
-              title.style.top = `${newTitleOffset}px`;
-              body.style.top = `${newBodyTop}px`;
-              headerInner.style.paddingTop = `${newHeaderPadding}px`;
-              headerInner.style.paddingBottom = `${newHeaderPadding}px`;
+              this.setCollapsedHeaderState();
             }
           },
         },
       },
+      scroll: {
+        sustain: 0,
+      },
     });
+  }
+
+  moveTabsToHeader() {
+    const tabsHolder = this.querySelector(
+      ".esds-site-page-shell__tabsholder-inner"
+    );
+    const tabSet = this.querySelector(".esds-tabs__tablist");
+    if (tabSet) {
+      // Move tabs to tabsHolder in Inner Header
+      tabsHolder.appendChild(tabSet);
+
+      // When a tab is clicked
+      tabSet.addEventListener("click", (e) => {
+        // If a tab element is clicked
+        if (e.target.closest(".esds-tabs__tab")) {
+          // Scroll back to the top of the content
+          window.scroll({
+            top: 90,
+            left: 0,
+          });
+        }
+      });
+    }
   }
 
   renderHeader() {
@@ -271,6 +301,7 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
             <div class="esds-site-page-shell__body-inner">
               <s-slot></s-slot>
             </div>
+            <div id="bottom">Bottom</div>
           </div>
         </div>
       </div>

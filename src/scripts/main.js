@@ -9,9 +9,6 @@ import "@eightshapes/esds-card/dist/esds-card-web-component.js";
 import "@eightshapes/esds-tabs/dist/esds-tabs-web-component.js";
 import "@eightshapes/esds-list-group/dist/esds-list-group-web-component.js";
 import "../site-components/page-shell/PageShell.js";
-const scrollMonitor = require("scrollmonitor");
-
-// DECK MONITOR
 
 // LOCAL NAV LAYOUT AND BEHAVIOR
 if (document.body.classList.contains("local-nav-layout")) {
@@ -24,9 +21,8 @@ if (document.body.classList.contains("local-nav-layout")) {
   const localNavContainer = document.querySelector(
     ".esds-site-component-layout-body__local-nav"
   );
-  const localNavWatcher = scrollMonitor.create(localNavContainer, 100);
 
-  // Listen for local nav clicks
+  // // Remove selected highlighting from all nav items
   const resetLocalNavSelected = () => {
     const listItems = Array.from(
       document.querySelectorAll(
@@ -36,12 +32,15 @@ if (document.body.classList.contains("local-nav-layout")) {
     listItems.forEach((li) => (li.selected = false));
   };
 
+  // Listen for local nav clicks
   localNavElement.addEventListener("click", (e) => {
+    const pageShell = document.querySelector("esds-site-page-shell");
     const link = e.target.closest(".esds-list-item__link");
     const listItem = e.target.closest("esds-list-item");
 
+    pageShell.setCollapsedHeaderState();
+
     if (listItem) {
-      localNavScrollMonitoring = false;
       resetLocalNavSelected();
       listItem.selected = true;
     }
@@ -51,7 +50,6 @@ if (document.body.classList.contains("local-nav-layout")) {
       const target = document.getElementById(targetId.replace("#", ""));
       e.preventDefault();
 
-      const pageShell = document.querySelector("esds-site-page-shell");
       const headerOffset = 90;
 
       const scrollPosition =
@@ -61,33 +59,13 @@ if (document.body.classList.contains("local-nav-layout")) {
         left: 0,
         behavior: "smooth",
       });
-
-      window.setTimeout(() => {
-        localNavScrollMonitoring = true;
-      }, 500);
-    }
-  });
-
-  const tabs = document.querySelector("esds-tabs");
-  // When a tab is clicked
-  tabs.addEventListener("click", (e) => {
-    // If a tab element is clicked
-    if (e.target.closest(".esds-tabs__tab")) {
-      localNavScrollMonitoring = false;
-      // Scroll back to the top of the content
-      window.scroll({
-        top: 60,
-        left: 0,
-      });
-
-      window.setTimeout(() => {
-        localNavScrollMonitoring = true;
-      }, 500);
     }
   });
 
   // After the tab content has loaded
+  const tabs = document.querySelector("esds-tabs");
   tabs.addEventListener("esds-tabs-tab-changed", () => {
+    localNavPositionMap = {};
     const currentTabId = tabs.currentTabId;
     const windowHeight = window.innerHeight;
     const headerElements = Array.from(
@@ -100,7 +78,8 @@ if (document.body.classList.contains("local-nav-layout")) {
     localNavElement.innerHTML = `
       <esds-list-group size="small" selected-indicators header="Contents">
         ${headerElements
-          .map((he, index) => {
+          .map((he, index, headers) => {
+            // create a section ID
             let headerId = he.getAttribute("id");
             if (headerId === null) {
               let calculatedHeaderId = he.textContent
@@ -120,24 +99,6 @@ if (document.body.classList.contains("local-nav-layout")) {
 
               he.setAttribute("id", headerId);
             }
-
-            var myElement = document.getElementById(headerId);
-
-            const offset = windowHeight - 180;
-            var elementWatcher = scrollMonitor.create(myElement, {
-              top: 140,
-              bottom: offset,
-            });
-
-            elementWatcher.partiallyExitViewport(function () {
-              const listItem = document.querySelector(
-                `esds-list-item[href="#${headerId}"]`
-              );
-              if (listItem && localNavScrollMonitoring) {
-                resetLocalNavSelected();
-                listItem.selected = true;
-              }
-            });
 
             if (he.tagName === "H2") {
               return `<esds-list-item href="#${headerId}" ${
