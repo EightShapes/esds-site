@@ -4,28 +4,8 @@ tags: thumbnail_tabs
 permalink: false
 ---
 
-### Code tab for thumbnail
+## Props
 
-- Unordered lists
-- In Markdown
-- Are Cool
-
-Do web components work here?
-
-<style>
-  table {
-    border: solid 1px black;
-    border-collapse: collapse;
-  }
-
-  th, td {
-    border: solid 1px black;
-    padding: 10px;
-  }
-</style>
-
-| Component Name | Example                 |
-| -------------- | ----------------------- |
-| esds-icon      | <esds-icon></esds-icon> |
+<esds-data-table headers='{{ componentProps.thumbnail.headers | dump }}' rows='{{ componentProps.thumbnail.rows | dump }}'>
 
 #### Hooray!

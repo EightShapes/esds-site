@@ -5,10 +5,13 @@ import "@eightshapes/esds-do-dont/dist/esds-do-dont-web-component.js";
 import "@eightshapes/esds-icon/dist/esds-icon-web-component.js";
 import "@eightshapes/esds-image-with-caption/dist/esds-image-with-caption-web-component.js";
 import "@eightshapes/esds-button/dist/esds-button-web-component.js";
+import "@eightshapes/esds-data-table/dist/esds-data-table-web-component.js";
 import "@eightshapes/esds-card/dist/esds-card-web-component.js";
 import "@eightshapes/esds-tabs/dist/esds-tabs-web-component.js";
 import "@eightshapes/esds-list-group/dist/esds-list-group-web-component.js";
 import "../site-components/page-shell/PageShell.js";
+
+const globallyAccessibleThing = "ninja-sword";
 
 // LOCAL NAV LAYOUT AND BEHAVIOR
 if (document.body.classList.contains("local-nav-layout")) {

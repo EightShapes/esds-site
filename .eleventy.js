@@ -38,6 +38,10 @@ module.exports = (eleventyConfig) => {
     return [...sortedTabs, ...otherTabs];
   });
 
+  eleventyConfig.addFilter("postTitleAlphaSort", function (posts) {
+    return posts.sort((a, b) => (b.data.title < a.data.title ? 1 : -1));
+  });
+
   eleventyConfig.addPassthroughCopy({ "dist/scripts/**/*.js": "scripts" });
   eleventyConfig.addPassthroughCopy({ "dist/styles/**/*.css": "styles" });
   eleventyConfig.addPassthroughCopy({ "src/svg/**/*": "svg" });
@@ -49,6 +53,7 @@ module.exports = (eleventyConfig) => {
       layouts: "../layouts",
       input: "src/site",
       output: "_site",
+      data: "../_data",
     },
     markdownTemplateEngine: "njk",
   };

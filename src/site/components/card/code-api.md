@@ -1,26 +1,12 @@
 ---
-title: Code API
-tags: card_tabs
-permalink: false
+  title: Code API
+  tags: card_tabs
+  permalink: false
 ---
 
 ## Props table
 
-<style>
-  table {
-    border: solid 1px black;
-    border-collapse: collapse;
-  }
-
-  th, td {
-    border: solid 1px black;
-    padding: 10px;
-  }
-</style>
-
-| Component Name | Example                 |
-| -------------- | ----------------------- |
-| esds-icon      | <esds-icon></esds-icon> |
+<esds-data-table headers='{{ componentProps.card.headers | dump }}' rows='{{ componentProps.card.rows | dump }}'>
 
 lorem ipsum
 

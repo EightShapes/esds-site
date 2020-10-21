@@ -268,7 +268,7 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
               <h1 class="esds-site-page-shell__title">${this.title}</h1>
               <p class="esds-site-page-shell__deck">${this.deck}</p>
             </div>
-            <div class="esds-site-page-shell__tabsholder"><div class="esds-site-page-shell__tabsholder-inner"></div></div>
+            <div class="esds-site-page-shell__tabsholder"><div class="esds-site-page-shell__tabsholder-inner esds-tabs"></div></div>
           </div>
         </div>
       </div>
@@ -301,7 +301,6 @@ export class EsdsSitePageShell extends Slotify(LitElement) {
             <div class="esds-site-page-shell__body-inner">
               <s-slot></s-slot>
             </div>
-            <div id="bottom">Bottom</div>
           </div>
         </div>
       </div>

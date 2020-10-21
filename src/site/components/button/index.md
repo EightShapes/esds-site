@@ -2,11 +2,11 @@
 layout: "local-nav.njk"
 title: "Button"
 tabsTag: button_tabs
+tags: "Component Page"
 deck: Buttons afford and initialize actions on a page.
 ---
 
-
-<!-- 
+<!--
 
 Material: Buttons allow users to take actions, and make choices, with a single tap.
 
@@ -20,7 +20,7 @@ Comet: Use buttons to perform many important actions throughout the experience.
 
 Workday: Buttons highlight actions available on a screen.
 
-Hubspot: Buttons communicate what action will occur on a page when the user interacts with them. 
+Hubspot: Buttons communicate what action will occur on a page when the user interacts with them.
 
 AGDS: Buttons make common actions more obvious and help users more easily perform them. Buttons use labels and sometimes icons to communicate the action that will occur when the user touches them.
 
