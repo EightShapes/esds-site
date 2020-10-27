@@ -11,6 +11,10 @@ module.exports = (eleventyConfig) => {
     "node_modules/@eightshapes/esds-rendered-example/dist/esds-rendered-example.css":
       "styles/esds-rendered-example.css",
   });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/@eightshapes/esds-icons/dist/esds-icons.svg":
+      "svg/esds-icons.svg",
+  });
 
   eleventyConfig.addFilter("componentTabSort", function (tabs) {
     const componentTabOrder = [

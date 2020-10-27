@@ -31,44 +31,42 @@ title: EightShapes Design System
             {% include '../svg/eightshapes-logo.svg' %}
           </h1>
           <div class="esds-site-page-shell__nav-scroll-wrapper">
+            {% macro nav_item(href, label) %}
+              <esds-list-item href="{{ href }}" {% if page.url == href %}selected{% endif %}>{{ label }}</esds-list-item>
+            {% endmacro %}
             <esds-list-group>
-              <esds-list-item href="/" {% if page.url == post.url %}selected{% endif %}>Home</esds-list-item>
+              {{ nav_item("/", "Home") }}
+              {{ nav_item("/getting-started", "Getting started") }}
+              {{ nav_item("/release-history", "Release history") }}
               <esds-list-group header="UI Components" collapsible>
                 {%- for post in collections['Component Page'] | postTitleAlphaSort -%}
                   <esds-list-item href="{{ post.url }}" {% if page.url == post.url %}selected{% endif %}>{{ post.data.title }}</esds-list-item>
                 {%- endfor -%}
               </esds-list-group>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
-              <esds-list-item href="#">Testing</esds-list-item>
+              <esds-list-group header="Visual Style" collapsible collapsed>
+                {{ nav_item("/color", "Color") }}
+                {{ nav_item("/typography", "Typography") }}
+                {{ nav_item("/space", "Space") }}
+                {{ nav_item("/tokens", "Tokens") }}
+              </esds-list-group>
+              <esds-list-group header="UX Patterns" collapsible collapsed></esds-list-group>
+              <esds-list-group header="Charts" collapsible collapsed></esds-list-group>
+              <esds-list-item href="/contribute" size="small" {% if page.url == href %}selected{% endif %}>
+                <esds-icon use="/svg/esds-icons.svg#pencil" slot="icon"></esds-icon>
+                Contribute
+              </esds-list-item>
+              <esds-list-item href="/contribute" size="small" {% if page.url == href %}selected{% endif %}>
+                <esds-icon use="/svg/esds-icons.svg#notification" slot="icon"></esds-icon>
+                Request a feature
+              </esds-list-item>
+              <esds-list-item href="/submit-defect" size="small" {% if page.url == href %}selected{% endif %}>
+                <esds-icon use="/svg/esds-icons.svg#alert-warning" slot="icon"></esds-icon>
+                Submit a defect
+              </esds-list-item>
+              <esds-list-item href="/get-help" size="small" {% if page.url == href %}selected{% endif %}>
+                <esds-icon use="/svg/esds-icons.svg#help" slot="icon"></esds-icon>
+                Get Help
+              </esds-list-item>
             </esds-list-group>
           </div>
         </div>

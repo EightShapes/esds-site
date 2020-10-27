@@ -11,8 +11,6 @@ import "@eightshapes/esds-tabs/dist/esds-tabs-web-component.js";
 import "@eightshapes/esds-list-group/dist/esds-list-group-web-component.js";
 import "../site-components/page-shell/PageShell.js";
 
-const globallyAccessibleThing = "ninja-sword";
-
 // LOCAL NAV LAYOUT AND BEHAVIOR
 if (document.body.classList.contains("local-nav-layout")) {
   let localNavScrollMonitoring = false;
