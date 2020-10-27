@@ -6,6 +6,6 @@ permalink: false
 
 ## Props
 
-<esds-data-table headers='{{ componentProps.thumbnail.headers | dump }}' rows='{{ componentProps.thumbnail.rows | dump }}'>
+<esds-data-table headers='{{ componentDocs.thumbnail.props.headers | dump }}' rows='{{ componentDocs.thumbnail.props.rows | dump }}'></esds-data-table>
 
 #### Hooray!

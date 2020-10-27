@@ -6,160 +6,43 @@
 
 ## Props
 
-<esds-data-table headers='{{ componentProps.card.headers | dump }}' rows='{{ componentProps.card.rows | dump }}'>
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-lorem ipsum
-
-## Style reference
-
-- Unordered lists
-- In Markdown
-- Are Cool
-
-Do web components work here?
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-## Anatomy
-
-#### Hooray!
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
+<esds-data-table headers='{{ componentDocs.card.props.headers | dump }}' rows='{{ componentDocs.card.props.rows | dump }}'></esds-data-table>
+
+<esds-do-dont>
+  <esds-do caption="Use the href attribute when the entire card is actionable">
+    <esds-card href="http://example.com" title="Visit example.com"></esds-card>
+  </esds-do>
+  <esds-dont caption="Don't use the href attribute when the card contains separate actions">
+    <esds-card title="Our Newsletter is pretty great">
+      <esds-button slot="actions" href="http://example.com" variant="secondary" size="small">Subscribe</esds-button>
+      <esds-button slot="actions" href="http://example.com" variant="secondary" size="small">Learn more</esds-button>
+    </esds-card>
+  </esds-dont>
+</esds-do-dont>
+
+## Slots
+
+<esds-data-table headers='{{ componentDocs.card.slots.headers | dump }}' rows='{{ componentDocs.card.slots.rows | dump }}'></esds-data-table>
+
+### Actions Slot Usage
+
+More than one action can be added to the card by assigning `slot="actions"` to multiple child elements.
+
+<esds-example-code-pair source='<esds-card>
+      <esds-button slot="actions" variant="secondary">Learn More</esds-button>
+      <esds-button slot="actions" variant="secondary">Take Another Action</esds-button>
+    </esds-card>'></esds-example-code-pair>
+
+### Content Slot usage
+
+<esds-example-code-pair source='<esds-card>
+      <div slot="content">
+        <h1>Any content you want to pass into a card</h1>
+        <p>Can be passed in via the content slot.</p>
+        <ul>
+          <li>Even</li>
+          <li>Unordered</li>
+          <li>Lists</li>
+        </ul>
+      </div>
+    </esds-card>'></esds-example-code-pair>

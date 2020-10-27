@@ -20,9 +20,7 @@ By default, always include a [thumbnail], title, and description.
 
 Customize additional content in the `content-area` slot, such as pricing, metadata, and other indicators.
 
-<esds-example-code-pair>
-  <esds-card title="Content"></esds-card>
-</esds-example-code-pair>
+<esds-example-code-pair source='<esds-card title="Content"></esds-card>'></esds-example-code-pair>
 
 ### Action area
 

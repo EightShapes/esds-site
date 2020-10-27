@@ -6,4 +6,4 @@
 
 ## Props
 
-<esds-data-table headers='{{ componentProps.button.headers | dump }}' rows='{{ componentProps.button.rows | dump }}'>
+<esds-data-table headers='{{ componentDocs.button.props.headers | dump }}' rows='{{ componentDocs.button.props.rows | dump }}'></esds-data-table>
