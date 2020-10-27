@@ -4,6 +4,6 @@
   permalink: false
 ---
 
-## Props table
+## Props
 
 <esds-data-table headers='{{ componentProps.icon.headers | dump }}' rows='{{ componentProps.icon.rows | dump }}'>
