@@ -1,14 +1,15 @@
-import "@eightshapes/esds-example-code-pair/dist/esds-example-code-pair-web-component.js";
-import "@eightshapes/esds-rendered-example/dist/esds-rendered-example-web-component.js";
+import "@eightshapes/esds-button/dist/esds-button-web-component.js";
+import "@eightshapes/esds-card/dist/esds-card-web-component.js";
 import "@eightshapes/esds-code-snippet/dist/esds-code-snippet-web-component.js";
+import "@eightshapes/esds-data-table/dist/esds-data-table-web-component.js";
 import "@eightshapes/esds-do-dont/dist/esds-do-dont-web-component.js";
+import "@eightshapes/esds-example-code-pair/dist/esds-example-code-pair-web-component.js";
 import "@eightshapes/esds-icon/dist/esds-icon-web-component.js";
 import "@eightshapes/esds-image-with-caption/dist/esds-image-with-caption-web-component.js";
-import "@eightshapes/esds-button/dist/esds-button-web-component.js";
-import "@eightshapes/esds-data-table/dist/esds-data-table-web-component.js";
-import "@eightshapes/esds-card/dist/esds-card-web-component.js";
-import "@eightshapes/esds-tabs/dist/esds-tabs-web-component.js";
 import "@eightshapes/esds-list-group/dist/esds-list-group-web-component.js";
+import "@eightshapes/esds-prose/dist/esds-prose-web-component.js";
+import "@eightshapes/esds-rendered-example/dist/esds-rendered-example-web-component.js";
+import "@eightshapes/esds-tabs/dist/esds-tabs-web-component.js";
 import "../site-components/page-shell/PageShell.js";
 
 // LOCAL NAV LAYOUT AND BEHAVIOR
@@ -71,7 +72,7 @@ if (document.body.classList.contains("local-nav-layout")) {
     const windowHeight = window.innerHeight;
     const headerElements = Array.from(
       document.querySelectorAll(
-        `#${currentTabId} .esds-site-component-layout-body__tab > h2, #${currentTabId} .esds-site-component-layout-body__tab > h3`
+        `#${currentTabId} .esds-site-component-layout-body__tab .esds-prose > s-slot > s-assigned-wrapper > h2, #${currentTabId} .esds-site-component-layout-body__tab .esds-prose > s-slot > s-assigned-wrapper > h3`
       )
     );
 

@@ -39,3 +39,11 @@ $esds-site-nav-on-canvas-at: 1086px;
   top: 100px;
   z-index: 300;
 }
+
+.esds-site-component-layout-body__tab {
+  padding-top: $esds-space-1-x;
+}
+
+.esds-prose > s-slot > s-assigned-wrapper > p > code {
+  @include esds-code-tag;
+}

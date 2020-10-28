@@ -10,10 +10,10 @@
 
 <esds-do-dont>
   <esds-do caption="Use the href attribute when the entire card is actionable">
-    <esds-card href="http://example.com" title="Visit example.com"></esds-card>
+    <esds-card style=" margin: 16px 0;max-width: 300px; min-height: 340px;" href="http://example.com" title="Visit example.com" description="For all your placeholder and example needs."></esds-card>
   </esds-do>
   <esds-dont caption="Don't use the href attribute when the card contains separate actions">
-    <esds-card title="Our Newsletter is pretty great">
+    <esds-card style=" margin: 16px 0;max-width: 300px; min-height: 340px;" title="Our Newsletter is pretty great">
       <esds-button slot="actions" href="http://example.com" variant="secondary" size="small">Subscribe</esds-button>
       <esds-button slot="actions" href="http://example.com" variant="secondary" size="small">Learn more</esds-button>
     </esds-card>
@@ -29,8 +29,8 @@
 More than one action can be added to the card by assigning `slot="actions"` to multiple child elements.
 
 <esds-example-code-pair source='<esds-card>
-      <esds-button slot="actions" variant="secondary">Learn More</esds-button>
-      <esds-button slot="actions" variant="secondary">Take Another Action</esds-button>
+      <esds-button slot="actions" variant="secondary" size="small">Learn More</esds-button>
+      <esds-button slot="actions" variant="secondary" size="small">Take Another Action</esds-button>
     </esds-card>'></esds-example-code-pair>
 
 ### Content Slot usage

@@ -8,8 +8,10 @@ body_classes: 'local-nav-layout'
       {% for tab in collections[tabsTag] | componentTabSort %}
         <esds-tab label="{{tab.data.title}}">
           <div class="esds-site-component-layout-body__tab">
-                  {{ tab.templateContent | safe }}
-            </div>
+            <esds-prose>
+              {{ tab.templateContent | safe }}
+            </esds-prose>
+          </div>
         </esds-tab>
       {% endfor %}
       </esds-tabs>
