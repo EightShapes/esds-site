@@ -27,10 +27,11 @@
     "@eightshapes/esds-icon": "^0.4.8",
     "@eightshapes/esds-icons": "^0.4.1",
     "@eightshapes/esds-image-with-caption": "^0.1.1",
-    "@eightshapes/esds-list-group": "^0.2.7",
+    "@eightshapes/esds-list-group": "^0.2.8",
     "@eightshapes/esds-prose": "^0.1.1",
     "@eightshapes/esds-rendered-example": "^0.9.1",
     "@eightshapes/esds-tabs": "^0.5.0",
+    "@eightshapes/esds-thumbnail": "^0.4.0",
     "@eightshapes/esds-tokens": "^0.6.0",
     "@eightshapes/esds-visual-style": "^0.6.1",
     "@terwanerik/scrolltrigger": "^1.0.5"
