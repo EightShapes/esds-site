@@ -129,7 +129,7 @@ $esds-logo-height: 100px;
   z-index: 100;
 
   @media screen and (min-width: $esds-site-nav-on-canvas-at) {
-    height: $esds-header-height-default;
+    height: 100%;
     width: calc(100vw - #{$esds-site-nav-width});
   }
 }
