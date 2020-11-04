@@ -16,11 +16,17 @@ Cards can be configured individually and arranged collectively to meet different
 
 By default, always include a [thumbnail], title, and description.
 
+<esds-example-code-pair source='
+
+'> </esds-example-code-pair>
+
 ### Content area
 
 Customize additional content in the `content-area` slot, such as pricing, metadata, and other indicators.
 
-<esds-example-code-pair source='<esds-card title="Content"></esds-card>'> </esds-example-code-pair>
+<esds-example-code-pair source='
+    <esds-card title="Content"></esds-card>
+'> </esds-example-code-pair>
 
 ### Action area
 
@@ -88,114 +94,3 @@ Wrap multiple cards in a cards grid container to arrange them in a row or multi-
 
 <esds-image-with-caption src="/images/landscape.png" caption="Use capitalization for languages that allow capitalization."></esds-image-with-caption>
 
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
-
-lorem
