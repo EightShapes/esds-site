@@ -19,7 +19,7 @@
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
     "@eightshapes/esds-button": "^0.4.2",
-    "@eightshapes/esds-card": "^0.4.1",
+    "@eightshapes/esds-card": "^0.4.3",
     "@eightshapes/esds-code-snippet": "^0.13.0",
     "@eightshapes/esds-data-table": "^0.1.6",
     "@eightshapes/esds-do-dont": "^0.3.0",
@@ -30,7 +30,7 @@
     "@eightshapes/esds-list-group": "^0.2.10",
     "@eightshapes/esds-prose": "^0.1.2",
     "@eightshapes/esds-rendered-example": "^0.9.1",
-    "@eightshapes/esds-tabs": "^0.5.2",
+    "@eightshapes/esds-tabs": "^0.5.3",
     "@eightshapes/esds-thumbnail": "^0.4.2",
     "@eightshapes/esds-tokens": "^0.6.0",
     "@eightshapes/esds-visual-style": "^0.7.1",

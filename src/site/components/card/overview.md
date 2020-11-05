@@ -17,16 +17,15 @@ Cards can be configured individually and arranged collectively to meet different
 By default, always include a [thumbnail], title, and description.
 
 <esds-example-code-pair source='
-
-'> </esds-example-code-pair>
+'></esds-example-code-pair>
 
 ### Content area
 
 Customize additional content in the `content-area` slot, such as pricing, metadata, and other indicators.
 
 <esds-example-code-pair source='
-    <esds-card title="Content"></esds-card>
-'> </esds-example-code-pair>
+<esds-card title="Content" img-src="/images/card/Jungfrau Glacier.png"></esds-card>
+'></esds-example-code-pair>
 
 ### Action area
 
@@ -34,7 +33,7 @@ Include actions in the `action-area` slot, such as one or more [buttons] or [ico
 
 <esds-example-code-pair source='<esds-card title="Example Card on Doc Site"></esds-card>'>
 <esds-rendered-example label="default">
-  <esds-card title="Content"></esds-card>
+  <esds-card title="Content" img-src="/images/card/Vernazza.png"></esds-card>
 </esds-rendered-example>
 </esds-example-code-pair>
 
@@ -93,4 +92,3 @@ Wrap multiple cards in a cards grid container to arrange them in a row or multi-
 </esds-do-dont>
 
 <esds-image-with-caption src="/images/landscape.png" caption="Use capitalization for languages that allow capitalization."></esds-image-with-caption>
-

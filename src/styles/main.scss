@@ -32,3 +32,8 @@ body {
     width: calc(100vw - #{$esds-site-nav-width});
   }
 }
+
+.esds-example-code-pair {
+  max-width: 854px;
+  width: 100%;
+}
