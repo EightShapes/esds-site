@@ -1,7 +1,7 @@
 ---
 layout: "local-nav.njk"
-title: "List group"
-tabsTag: list_group_tabs
+title: "Chip"
+tabsTag: chip_tabs
 tags: "Component Page"
-deck: TBD
+deck: Chip.
 ---
