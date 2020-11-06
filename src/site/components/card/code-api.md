@@ -4,6 +4,13 @@
   permalink: false
 ---
 
+## Installation instructions
+
+Install the esds-card package from NPM:
+<esds-code-snippet>
+npm install @eightshapes/esds-card
+</esds-code-snippet>
+
 ## Props
 
 <esds-data-table headers='{{ componentDocs.card.props.headers | dump }}' rows='{{ componentDocs.card.props.rows | dump }}'></esds-data-table>
@@ -24,7 +31,7 @@
 
 <esds-data-table headers='{{ componentDocs.card.slots.headers | dump }}' rows='{{ componentDocs.card.slots.rows | dump }}'></esds-data-table>
 
-### Actions Slot Usage
+### Actions slot usage
 
 More than one action can be added to the card by assigning `slot="actions"` to multiple child elements.
 
@@ -34,7 +41,7 @@ More than one action can be added to the card by assigning `slot="actions"` to m
       <esds-button slot="actions" variant="secondary" size="small">Take Another Action</esds-button>
     </esds-card>'></esds-example-code-pair>
 
-### Content Slot usage
+### Content slot usage
 
 <esds-example-code-pair source='<esds-card img-src="/images/card/Wanaka.png" style="width: 300px;" title="Peaceful Lake">
       <div slot="content">
