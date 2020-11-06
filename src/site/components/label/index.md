@@ -1,7 +1,7 @@
 ---
 layout: "local-nav.njk"
-title: "List group"
-tabsTag: list_group_tabs
+title: "Label"
+tabsTag: Label_tabs
 tags: "Component Page"
-deck: TBD
+deck: Label.
 ---

@@ -1,7 +1,7 @@
 ---
 layout: "local-nav.njk"
-title: "List group"
-tabsTag: list_group_tabs
+title: "Input"
+tabsTag: Input_tabs
 tags: "Component Page"
-deck: TBD
+deck: Input.
 ---

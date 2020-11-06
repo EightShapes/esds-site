@@ -24,6 +24,22 @@ permalink: false
 
 Cards can be arranged in a variety of ways: horizontally, vertically, in a grid of rows and columns, or even as masonry.
 
+<esds-do-dont>
+  <esds-do
+    caption="Use capitalization for languages that allow capitalization."
+    src="/images/landscape.png"
+  ></esds-do>
+  <esds-dont
+    caption="Don't wrap text. For maximum legibility, a text label should remain on a single line."
+    src="/images/portrait.jpg"
+  ></esds-dont>
+
+  <esds-dont
+    caption="Don't wrap text. For maximum legibility, a text label should remain on a single line. Don't wrap text. For maximum legibility, a text label should remain on a single line."
+    src="/images/portrait.jpg"
+  ></esds-dont>
+</esds-do-dont>
+
 <!-- Do customize card arrangements for more sophisticated displays -->
 
 <!-- Don't customize arrangements without considering responsive implications -->

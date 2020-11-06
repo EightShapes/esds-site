@@ -38,16 +38,16 @@ title: EightShapes Design System
               {{ nav_item("/", "Home") }}
               {{ nav_item("/getting-started", "Getting started") }}
               {{ nav_item("/release-history", "Release history") }}
-              <esds-list-group header="UI Components" collapsible>
-                {%- for post in collections['Component Page'] | postTitleAlphaSort -%}
-                  <esds-list-item href="{{ post.url }}" {% if page.url == post.url %}selected{% endif %}>{{ post.data.title }}</esds-list-item>
-                {%- endfor -%}
-              </esds-list-group>
               <esds-list-group header="Visual Style" collapsible collapsed>
                 {{ nav_item("/color", "Color") }}
                 {{ nav_item("/typography", "Typography") }}
                 {{ nav_item("/space", "Space") }}
                 {{ nav_item("/tokens", "Tokens") }}
+              </esds-list-group>
+              <esds-list-group header="UI Components" collapsible>
+                {%- for post in collections['Component Page'] | postTitleAlphaSort -%}
+                  <esds-list-item href="{{ post.url }}" {% if page.url == post.url %}selected{% endif %}>{{ post.data.title }}</esds-list-item>
+                {%- endfor -%}
               </esds-list-group>
               <esds-list-group header="UX Patterns" collapsible collapsed></esds-list-group>
               <esds-list-group header="Charts" collapsible collapsed></esds-list-group>
