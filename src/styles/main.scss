@@ -33,8 +33,25 @@ body {
   }
 }
 
-.esds-example-code-pair {
-  margin-top: $esds-space-stack-2-x;
-  max-width: 854px;
-  width: 100%;
+.esds-prose {
+  .esds-example-code-pair,
+  .esds-code-snippet,
+  .esds-rendered-example {
+    margin-top: $esds-space-2-x;
+    max-width: 854px;
+    width: 100%;
+
+    .esds-code-snippet,
+    .esds-rendered-example {
+      margin-top: 0;
+    }
+  }
+
+  .esds-do-dont {
+    margin-top: $esds-space-2-x;
+
+    img {
+      margin-top: 0;
+    }
+  }
 }
