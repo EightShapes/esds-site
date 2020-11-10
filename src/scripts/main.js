@@ -69,7 +69,6 @@ if (document.body.classList.contains('local-nav-layout')) {
     // After the tab content has loaded
     const tabs = document.querySelector('esds-tabs')
     tabs.addEventListener('esds-tabs-tab-changed', () => {
-        console.log('TAB CHANGE')
         localNavPositionMap = {}
         const currentTabId = tabs.currentTabId
         const windowHeight = window.innerHeight
