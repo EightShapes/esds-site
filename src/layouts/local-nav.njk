@@ -5,15 +5,17 @@ body_classes: 'local-nav-layout'
 <div class="esds-site-component-layout-body" style="position:relative;">
     <div class="esds-site-component-layout-body__content">
       <esds-tabs>
-      {% for tab in collections[tabsTag] | componentTabSort %}
-        <esds-tab label="{{tab.data.title}}">
-          <div class="esds-site-component-layout-body__tab">
-            <esds-prose>
-              {{ tab.templateContent | safe }}
-            </esds-prose>
-          </div>
-        </esds-tab>
-      {% endfor %}
+      {% if collections[tabsTag].length > 0 %}
+        {% for tab in collections[tabsTag] | componentTabSort %}
+          <esds-tab label="{{tab.data.title}}">
+            <div class="esds-site-component-layout-body__tab">
+              <esds-prose>
+                {{ tab.templateContent | safe }}
+              </esds-prose>
+            </div>
+          </esds-tab>
+        {% endfor %}
+      {% endif %}
       </esds-tabs>
     </div>
     <div class="esds-site-component-layout-body__local-nav">
