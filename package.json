@@ -22,7 +22,7 @@
         "@eightshapes/esds-card": "^0.5.2",
         "@eightshapes/esds-code-snippet": "^0.15.0",
         "@eightshapes/esds-data-table": "^0.2.2",
-        "@eightshapes/esds-do-dont": "^0.5.0",
+        "@eightshapes/esds-do-dont": "^0.6.0",
         "@eightshapes/esds-example-code-pair": "^0.18.0",
         "@eightshapes/esds-icon": "^0.5.2",
         "@eightshapes/esds-icons": "^0.4.1",
