@@ -5,53 +5,57 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 // DECK
 .esds-site-deck {
-  @include esds-box-sizing;
-  align-items: center;
-  display: flex;
-  // min-height: 315px;
-  // padding-bottom: 44px;
-  transition: height 0.5s;
+    @include esds-box-sizing;
+    align-items: center;
+    display: flex;
+    // min-height: 315px;
+    // padding-bottom: 44px;
+    transition: height 0.5s;
 }
 
 .esds-site-deck__content {
-  transform: translateY(0);
-  transition: transform $esds-fixed-header-transition-timing;
-
-  .esds-site-page-shell--fixed-header & {
     transform: translateY(0);
-  }
+    transition: transform $esds-fixed-header-transition-timing;
 
-  @media screen and (min-width: $esds-site-nav-on-canvas-at) {
-    transform: translateY(44px);
-    width: calc(100vw - #{$esds-site-nav-width});
-  }
+    .esds-site-page-shell--fixed-header & {
+        transform: translateY(0);
+    }
+
+    @media screen and (min-width: $esds-site-nav-on-canvas-at) {
+        transform: translateY(44px);
+        width: calc(100vw - #{$esds-site-nav-width});
+    }
 }
 
 .esds-prose {
-  .esds-example-code-pair,
-  .esds-code-snippet,
-  .esds-rendered-example {
-    margin-top: $esds-space-1-x;
-    max-width: 854px;
-    width: 100%;
-
+    .esds-example-code-pair,
     .esds-code-snippet,
     .esds-rendered-example {
-      margin-top: 0;
-    }
-  }
+        margin-top: $esds-space-1-x;
+        max-width: 854px;
+        width: 100%;
 
-  .esds-do-dont {
-    margin-top: $esds-space-1-x;
-
-    img {
-      margin-top: 0;
+        .esds-code-snippet,
+        .esds-rendered-example {
+            margin-top: 0;
+        }
     }
-  }
+
+    .esds-do-dont {
+        margin-top: $esds-space-1-x;
+
+        img {
+            margin-top: 0;
+        }
+    }
+}
+
+.esds-prose .esds-example-code-pair .esds-example-code-pair__footer {
+    transform: translateY(-100%);
 }
