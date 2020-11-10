@@ -17,8 +17,8 @@ When the `href` attribute is used on a card, the entire card becomes a single, f
 When individual actions are added via the `actions` slot on the card, the card itself will not be focusable. Instead the `tab` key will set focus on each individual action.
 <esds-rendered-example label="Two actions (multiple focus targets)">
 <esds-card style="width: 350px" img-src="/images/card/Interlaken Dusk.png" title="Release details" description="Learn more about the release details or download the latest design assets">
-<esds-button slot="actions" size="small" variant="secondary">View Release Details</esds-button>
-<esds-button slot="actions" size="small" variant="secondary">Download Design Assets</esds-button>
+<esds-button slot="actions" size="small" variant="secondary">View Details</esds-button>
+<esds-button slot="actions" size="small" variant="secondary">Download Assets</esds-button>
 </esds-card>
 </esds-rendered-example>
 
