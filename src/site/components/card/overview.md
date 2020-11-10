@@ -12,23 +12,30 @@ Cards can be configured individually and arranged collectively to meet different
 
 ## Elements
 
-### Thumbnail & Title
+### Default
 
-Always include a [thumbnail](/components/thumbnail/) and title.
+Always include a [thumbnail](/components/thumbnail/) and succinct, clear title of the object.
 
 <esds-example-code-pair>
-  <esds-card title="Wanaka" img-src="/images/card/Wanaka.png"></esds-card>
+  <esds-card 
+    title="Wanaka" 
+    img-src="/images/card/Wanaka.png"
+    style="width: 320px" 
+  ></esds-card>
 </esds-example-code-pair>
+
+By default, an entire Card block is interactive and linked to a destination via the `href` attribute. Omit this property when including one or more actions in the `actions` slot.
 
 ### Description
 
-Optionally include a description to elaborate on the object's meaning or context.
+Optionally include a longer description to elaborate on the object's meaning or context.
 
 <esds-example-code-pair hidden-code preformatted>
   <esds-card
     title="Wanaka"
     description="The most photogenic tree in New Zealand if not the world."
     img-src="/images/card/Wanaka.png"
+    style="width: 320px" 
   ></esds-card>
 </esds-example-code-pair>
 
@@ -39,8 +46,10 @@ Include metadata to distinguish card types, include a date / time stamp, or othe
 <esds-example-code-pair hidden-code >
   <esds-card
     title="Design System Intermediaries"
-    description="Relating to the Distributors, Translators, and Themers In Between." metadata="Feb 11, 2018 • 8 min read"
+    description="Relating to the Distributors, Translators, and Themers In Between." 
+    metadata="Feb 11, 2018 • 8 min read"
     img-src="/images/card/medium.png"
+    style="width: 320px" 
   ></esds-card>
 </esds-example-code-pair>
 
@@ -50,15 +59,29 @@ Card slots for content and actions enable flexible displays to suit the needs of
 
 ### Content area
 
-Customize additional content in the `content-area` slot, such as pricing, metadata, and other indicators.
+Customize additional content in the `content` slot, such as pricing, metadata, and other indicators.
+
+<esds-example-code-pair hidden-code >
+  <esds-card 
+    title="Peaceful Lake"
+    img-src="/images/card/Wanaka.png" 
+    style="width: 300px;" 
+    >
+    <div slot="content">
+      <h4>Any content you want to pass into a card</h4>
+      <p>Can be passed in via the content slot.</p>
+      <ul>
+        <li>Even</li>
+        <li>Unordered</li>
+        <li>Lists</li>
+      </ul>
+    </div>
+  </esds-card>
+</esds-example-code-pair>
 
 ### Action area
 
-Include actions in the `action-area` slot, such as one or more [buttons] or [icon buttons].
-
-<esds-example-code-pair hidden-code>
-  <esds-card title="Content" img-src="/images/card/Vernazza.png"></esds-card>
-</esds-example-code-pair>
+Include actions in the `actions` slot, such as one or more buttons or icon buttons.
 
 ## Size
 
@@ -66,18 +89,33 @@ Match the size of adjacent elements when presenting a `small`, `medium` (default
 
 ### Small
 
-<esds-example-code-pair>
-  <esds-card size="small" title="Wanaka" img-src="/images/card/Wanaka.png"></esds-card>
+<esds-example-code-pair hidden-code>
+  <esds-card 
+    size="small" 
+    title="Wanaka" 
+    img-src="/images/card/Wanaka.png"
+    style="width: 260px" 
+  ></esds-card>
 </esds-example-code-pair>
 
 ### Medium
 
-<esds-example-code-pair>
-  <esds-card size="medium" title="Wanaka" img-src="/images/card/Wanaka.png"></esds-card>
+<esds-example-code-pair hidden-code>
+  <esds-card 
+    style="width: 320px" 
+    size="medium" 
+    title="Wanaka" 
+    img-src="/images/card/Wanaka.png"
+  ></esds-card>
 </esds-example-code-pair>
 
 ### Large
 
-<esds-example-code-pair>
-  <esds-card size="large" title="Wanaka" img-src="/images/card/Wanaka.png"></esds-card>
+<esds-example-code-pair hidden-code>
+  <esds-card 
+    style="width: 380px" 
+    size="large" 
+    title="Wanaka" 
+    img-src="/images/card/Wanaka.png"
+  ></esds-card>
 </esds-example-code-pair>
