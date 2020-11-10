@@ -83,20 +83,6 @@ Customize additional content in the `content` slot, such as pricing, metadata, a
 
 Include actions in the `actions` slot, such as one or more buttons or icon buttons.
 
-<esds-example-code-pair hidden-code>
-  <esds-card 
-    title="Wanaka" 
-    size="small" 
-    img-src="/images/card/Wanaka.png"
-    style="width: 320px;"
-    >
-    <div slot="actions">
-      <esds-button text="Action 1" size="small" variant="primary"></esds-button>
-      <esds-button text="Action 2" size="small" variant="outline"></esds-button>
-    </div>
-  </esds-card>
-</esds-example-code-pair>
-
 ## Size
 
 Match the size of adjacent elements when presenting a `small`, `medium` (default), or `large` card.
