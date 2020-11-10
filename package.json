@@ -28,7 +28,7 @@
         "@eightshapes/esds-icons": "^0.4.1",
         "@eightshapes/esds-image-with-caption": "^0.2.0",
         "@eightshapes/esds-list-group": "^0.3.2",
-        "@eightshapes/esds-prose": "^0.2.3",
+        "@eightshapes/esds-prose": "^0.3.0",
         "@eightshapes/esds-rendered-example": "^0.11.0",
         "@eightshapes/esds-tabs": "^0.6.3",
         "@eightshapes/esds-thumbnail": "^0.5.2",
