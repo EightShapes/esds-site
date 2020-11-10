@@ -14,15 +14,17 @@ Cards can be configured individually and arranged collectively to meet different
 
 ### Thumbnail & Title
 
-Always include a [thumbnail](/components/thumbnail/) and title.
+Always include a [thumbnail](/components/thumbnail/) and succinct, clear title of the object.
 
 <esds-example-code-pair>
   <esds-card title="Wanaka" img-src="/images/card/Wanaka.png"></esds-card>
 </esds-example-code-pair>
 
+By default, an entire Card block is interactive and linked to a destination via the `href` attribute. Omit this property when including one or more actions in the `actions` slot.
+
 ### Description
 
-Optionally include a description to elaborate on the object's meaning or context.
+Optionally include a longer description to elaborate on the object's meaning or context.
 
 <esds-example-code-pair hidden-code preformatted>
   <esds-card
@@ -66,18 +68,18 @@ Match the size of adjacent elements when presenting a `small`, `medium` (default
 
 ### Small
 
-<esds-example-code-pair>
+<esds-example-code-pair hidden-code>
   <esds-card size="small" title="Wanaka" img-src="/images/card/Wanaka.png"></esds-card>
 </esds-example-code-pair>
 
 ### Medium
 
-<esds-example-code-pair>
+<esds-example-code-pair hidden-code>
   <esds-card size="medium" title="Wanaka" img-src="/images/card/Wanaka.png"></esds-card>
 </esds-example-code-pair>
 
 ### Large
 
-<esds-example-code-pair>
+<esds-example-code-pair hidden-code>
   <esds-card size="large" title="Wanaka" img-src="/images/card/Wanaka.png"></esds-card>
 </esds-example-code-pair>

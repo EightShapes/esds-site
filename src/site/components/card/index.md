@@ -3,7 +3,7 @@ layout: "local-nav.njk"
 title: "Card"
 tabsTag: card_tabs
 tags: "Component Page"
-deck: Cards depict an object's summary content, actions, and path to more details arranged in a grid of rows and/or columns.
+deck: Cards depict an object's summary content, actions, and path to more details.
 ---
 
 <!--

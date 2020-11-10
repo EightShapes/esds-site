@@ -159,6 +159,7 @@ $esds-logo-height: 100px;
 
 .esds-site-page-shell__deck {
   @include esds-font-size("body-l", $responsive: true);
+  font-weight: $esds-font-weight-regular;
   margin: 0;
   max-width: 700px;
   opacity: 1;

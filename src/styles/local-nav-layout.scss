@@ -17,7 +17,7 @@ $esds-site-nav-on-canvas-at: 1086px;
 
 .esds-site-component-layout-body__content {
   flex: 1 1 100%;
-  padding: 72px $esds-space-2-x 0 0;
+  padding: 48px 96px 0 0;
 }
 
 .esds-site-component-layout-body__local-nav {
@@ -44,6 +44,16 @@ $esds-site-nav-on-canvas-at: 1086px;
   padding-top: $esds-space-1-x;
 }
 
-.esds-prose > s-slot > s-assigned-wrapper > p > code {
-  @include esds-code-tag;
+.esds-prose > s-slot > s-assigned-wrapper {
+  h3 + p {
+    margin-top: 4px;
+  }
+
+  p > code {
+    @include esds-code-tag;
+  }
+}
+
+.esds-list-group__header-text {
+  margin-bottom: 8px;
 }
