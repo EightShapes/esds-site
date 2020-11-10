@@ -61,9 +61,41 @@ Card slots for content and actions enable flexible displays to suit the needs of
 
 Customize additional content in the `content` slot, such as pricing, metadata, and other indicators.
 
+<esds-example-code-pair hidden-code >
+  <esds-card 
+    title="Peaceful Lake"
+    img-src="/images/card/Wanaka.png" 
+    style="width: 300px;" 
+    >
+    <div slot="content">
+      <h4>Any content you want to pass into a card</h4>
+      <p>Can be passed in via the content slot.</p>
+      <ul>
+        <li>Even</li>
+        <li>Unordered</li>
+        <li>Lists</li>
+      </ul>
+    </div>
+  </esds-card>
+</esds-example-code-pair>
+
 ### Action area
 
 Include actions in the `actions` slot, such as one or more buttons or icon buttons.
+
+<esds-example-code-pair hidden-code>
+  <esds-card 
+    title="Wanaka" 
+    size="small" 
+    img-src="/images/card/Wanaka.png"
+    style="width: 320px;"
+    >
+    <div slot="actions">
+      <esds-button text="Action 1" size="small" variant="primary"></esds-button>
+      <esds-button text="Action 2" size="small" variant="outline"></esds-button>
+    </div>
+  </esds-card>
+</esds-example-code-pair>
 
 ## Size
 
