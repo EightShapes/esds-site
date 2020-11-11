@@ -8,7 +8,9 @@ permalink: false
 
 Cards can be configured individually and arranged collectively to meet different thematic, messaging, and user goals.
 
-<esds-image-with-caption src="/images/card/Anatomy.png"></esds-image-with-caption>
+<esds-image-with-caption 
+  src="/images/card/Anatomy.png"
+  caption="Card component anatomy"></esds-image-with-caption>
 
 ## Elements
 
@@ -61,8 +63,7 @@ Card slots for content and actions enable flexible displays to suit the needs of
 
 Customize additional content in the `content` slot, such as pricing, metadata, and other indicators.
 
-<esds-example-code-pair hidden-code >
-  <esds-card 
+<esds-example-code-pair hidden-code source='<esds-card 
     title="Peaceful Lake"
     img-src="/images/card/Wanaka.png" 
     style="width: 300px;" 
@@ -76,8 +77,7 @@ Customize additional content in the `content` slot, such as pricing, metadata, a
         <li>Lists</li>
       </ul>
     </div>
-  </esds-card>
-</esds-example-code-pair>
+  </esds-card>'></esds-example-code-pair>
 
 ### Action area
 
